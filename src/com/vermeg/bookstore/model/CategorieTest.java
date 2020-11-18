@@ -1,31 +1,24 @@
-package com.vermeg.bookstore;
+package com.vermeg.bookstore.model;
 
-import com.vermeg.bookstore.model.Author;
 import com.vermeg.bookstore.service.AuthorService;
 import com.vermeg.bookstore.service.CategorieService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
 
-public class Main  {
-
-
-
+public class CategorieTest {
 
     public static void main(String[] args) {
         DBConnection.getInstance().getConnection();
 //        launch(args);
         CategorieService cs = new CategorieService();
-        AuthorService as = new AuthorService();
         try {
-          //System.out.println(cs.getCategories());
+            //System.out.println(cs.getCategories());
 
            /* cs.addCategorie(new Categorie("Horror",
                     "An horror film is one that seeks to elicit fear in its audience for entertainment" +
                             " purposes. Horror films additionally aim to evoke viewers nightmares, fears," +
-                            " revulsions and terror of the unknown and macabre."));
+                            " revulsions and terror of the unknown and macabre."));*/
             cs.addCategorie(new Categorie("Romantic",
                     "Romance films or romance movies are romantic love stories recorded in visual" +
                             " media for broadcast in theaters and on TV that focus on passion, emotion, and the" +
@@ -38,7 +31,7 @@ public class Main  {
                             " They typically involve protagonists who must leave their home or place of comfort" +
                             " and go to far away lands to fulfill a goal. Settings play an important role " +
                             "in Adventure films, sometimes as big as the characters themselves."));
-            System.out.println("*************************************");
+           /* System.out.println("*************************************");
             System.out.println(cs.getCategories());
             cs.addCategorie(new Categorie("bla bla","bla bla"));
             System.out.println("SUPRESSION");
@@ -53,30 +46,20 @@ public class Main  {
                             " romantic comedy, action comedy, student comedy, mockumentary, web series episodes," +
                             " comedy TV pilots, fake commercials and more at our past events.");
             cs.addCategorie(c);*/
-            /*Categorie c = new Categorie(5, "Comedy movies", "This category is reserved for films that make people laugh. The judges are looking" +
+            Categorie c = new Categorie(5, "Comedy movies", "This category is reserved for films that make people laugh. The judges are looking" +
                     " for films that have funny moments, comedic situations, fun dialogue," +
                     " humorous acting, and great characters. This event has screened great musicals," +
                     " sketch comedy, stand-up comedy, family comedy, silent comedy, slapstick comedy," +
                     " romantic comedy, action comedy, student comedy, mockumentary, web series episodes," +
                     " comedy TV pilots, fake commercials and more at our past events.");
-            cs.updateCategorie(c);*/
+            cs.updateCategorie(c);
 
 
-           // as.addAuthor(new Author("Victor", "Hugo","26/02/1802","220px-Bonnat_Hugo001z"));
-
-           // as.addAuthor(new Author("bla bla", "Hba","26/02/1802","220px-Bonnat_Hugo001z"));
-
-
-           // System.out.println("SUPRESSION");
-           // as.deleteAuthor(2);
-            //as.deleteAuthor(3);
-            Author a = new Author(1,"victor","hugo","26-02-1806","lien");
-            as.updateAuthor(a);
-            System.out.println(as.getAuthors());
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Exception" );
+            System.out.println("Exception");
         }
-
     }
 }
+
+
