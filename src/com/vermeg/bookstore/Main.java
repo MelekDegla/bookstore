@@ -1,19 +1,31 @@
 package com.vermeg.bookstore;
 
+import java.util.Date;
+
+import com.vermeg.bookstore.dao.impl.UserDao;
+import com.vermeg.bookstore.dao.impl.UserDaoImpl;
+import com.vermeg.bookstore.model.User;
 import com.vermeg.bookstore.utils.DBConnection;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class Main  {
+	
 
 
 
 
     public static void main(String[] args) {
-        DBConnection.getInstance().getConnection();
-//        launch(args);
+    	User user= new User(); 
+    	user.setName("wiem");
+    	user.setBirthdate("1/08/1997");
+    	user.setId(14);
+    	user.setLastname("rekik");
+    	
+    	
+    	
+    	UserDaoImpl.getInstance().delete(user);
+    	
+    	
+    System.out.println(UserDaoImpl.getInstance().findAll());	
+    
     }
 }
