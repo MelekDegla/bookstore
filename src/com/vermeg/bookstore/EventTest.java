@@ -1,6 +1,7 @@
-package com.vermeg.bookstore.service;
+package com.vermeg.bookstore;
 
 import com.vermeg.bookstore.model.Events;
+import com.vermeg.bookstore.service.EventsService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.SQLException;
