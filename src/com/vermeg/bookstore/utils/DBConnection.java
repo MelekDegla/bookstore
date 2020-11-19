@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
     private static DBConnection instance;
 
-    private final String URL = "jdbc:mysql://localhost:3306/bookstore";
+    private final String URL = "jdbc:mysql://localhost:3306/eboutique";
     private final String USERNAME= "root";
     private final String PASSWORD= "";
     private Connection connection;
@@ -22,7 +22,7 @@ public class DBConnection {
 
     }
 
-    public static synchronized DBConnection getInstance(){
+    public static  synchronized DBConnection getInstance(){
         if(instance== null){
             instance  = new DBConnection();
         }
