@@ -8,6 +8,8 @@ import com.vermeg.bookstore.service.CategorieService;
 
 import com.vermeg.bookstore.model.PBook;
 import com.vermeg.bookstore.service.ServicePBook;
+import com.vermeg.bookstore.model.Events;
+import com.vermeg.bookstore.service.EventsService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.SQLException;
@@ -25,6 +27,7 @@ public class Main  {
 
 
     //    DBConnection.getInstance().getConnection();
+       // DBConnection.getInstance().getConnection();
 //        launch(args);
 
 
@@ -59,4 +62,9 @@ public class Main  {
         }
 
     }
+
+
+
 }
+
+
