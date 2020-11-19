@@ -18,7 +18,7 @@ public class MainFeedback {
             sf.addFeedback(f2);
             sf.addFeedback(f3);
             sf.deleteFeedback(7);
-            Feedback f4 = new Feedback(12,"AHMED","Kamel","kamel.ahmed@esprit.tn","99665887","qsdqsd");
+            Feedback f4 = new Feedback(12,"AHMeeeeED","Kamel","kamel.ahmed@esprit.tn","99665887","qsdqsd");
             sf.updateFeedback(f4);
         } catch (SQLException e) {
             System.out.println("Exception");

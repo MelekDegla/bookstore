@@ -59,7 +59,7 @@ public class OrderDetailsService {
     }
 
     public void delete(int orderId, int bookId) throws SQLException {
-        String request = "DELETE FROM `order_details` WHERE order_id =" + orderId + "and book_id = " +bookId;
+        String request = "DELETE FROM `order_details` WHERE order_id =" + orderId + " and book_id = " +bookId;
 
         connection.createStatement().executeUpdate(request);
     }

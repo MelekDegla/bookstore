@@ -10,7 +10,6 @@ import java.sql.SQLException;
 public class CategorieTest {
 
     public static void main(String[] args) {
-        DBConnection.getInstance().getConnection();
 //        launch(args);
         CategorieService cs = new CategorieService();
         try {
@@ -32,11 +31,12 @@ public class CategorieTest {
                             " They typically involve protagonists who must leave their home or place of comfort" +
                             " and go to far away lands to fulfill a goal. Settings play an important role " +
                             "in Adventure films, sometimes as big as the characters themselves."));
+            cs.deleteCategorie(9);
            /* System.out.println("*************************************");
             System.out.println(cs.getCategories());
             cs.addCategorie(new Categorie("bla bla","bla bla"));
             System.out.println("SUPRESSION");
-            cs.deleteCategorie(4);
+
             System.out.println(cs.getCategories());*/
 
             /*Categorie c = new Categorie("Comedy",
@@ -47,7 +47,7 @@ public class CategorieTest {
                             " romantic comedy, action comedy, student comedy, mockumentary, web series episodes," +
                             " comedy TV pilots, fake commercials and more at our past events.");
             cs.addCategorie(c);*/
-            Categorie c = new Categorie(5, "Comedy movies", "This category is reserved for films that make people laugh. The judges are looking" +
+            Categorie c = new Categorie(5, "Comedy moviesss", "This category is reserved for films that make people laugh. The judges are looking" +
                     " for films that have funny moments, comedic situations, fun dialogue," +
                     " humorous acting, and great characters. This event has screened great musicals," +
                     " sketch comedy, stand-up comedy, family comedy, silent comedy, slapstick comedy," +
