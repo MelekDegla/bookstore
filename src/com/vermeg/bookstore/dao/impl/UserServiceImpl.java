@@ -33,7 +33,10 @@ public class UserDaoImpl implements UserDao {
 	public void insert(User entity) {
 		
 		// TODO Auto-generated method stub
-		String query = "insert into User ( name ,lastname , phone , email,password, username,birthdate,photo) values ('"+entity.getName()+"', '" +entity.getLastname()+"', '"+entity.getPhone()+"' ,' "+entity.getEmail() +"',' "	+ entity.getPassword()+"','"+entity.getUsername()+"' , '"+entity.getBirthdate()+" ' , "	+entity.getPhoto()+");" ;
+		String query = "insert into User ( name ,lastname , phone , email,password, username,birthdate,photo)" +
+				" values ('"+entity.getName()+"', '" +entity.getLastname()+"', '"+entity.getPhone()+"' ,' "
+				+entity.getEmail() +"',' "	+ entity.getPassword()+"','"+entity.getUsername()+"' , '"
+				+entity.getBirthdate()+" ' , "	+entity.getPhoto()+");" ;
 		try {
 						
 			statement.executeUpdate(query);
