@@ -1,4 +1,6 @@
 package com.vermeg.bookstore.service;
 
-public interface ICategoryService {
+import com.vermeg.bookstore.model.Categorie;
+
+public interface ICategoryService extends EntityService<Categorie> {
 }

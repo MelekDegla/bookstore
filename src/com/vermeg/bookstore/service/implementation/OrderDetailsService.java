@@ -1,12 +1,14 @@
 package com.vermeg.bookstore.service.implementation;
 
 import com.vermeg.bookstore.model.OrderDetails;
+import com.vermeg.bookstore.service.IOrderDetailsService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
-public class OrderDetailsService {
+public class OrderDetailsService implements IOrderDetailsService {
     private Connection connection;
 
 
@@ -14,7 +16,7 @@ public class OrderDetailsService {
         connection = DBConnection.getInstance().getConnection();
     }
 
-    public void add(OrderDetails orderDetails) throws SQLException {
+    public void insert(OrderDetails orderDetails) throws SQLException {
         String request = "INSERT INTO `order_details` (`order_id`, `book_id`, `quantity`)"
                 + " VALUES ("+orderDetails.getOrderId()+", " + orderDetails.getBookId() + ", " + orderDetails.getQuantity() + ")";
 
@@ -32,6 +34,11 @@ public class OrderDetailsService {
         }
 
         return results;
+    }
+
+    @Override
+    public OrderDetails findById(int id) throws SQLException {
+        return null;
     }
 
     public OrderDetails findById(int orderId, int bookId ) throws SQLException {
@@ -58,7 +65,17 @@ public class OrderDetailsService {
 
     }
 
-    public void delete(int orderId, int bookId) throws SQLException {
+    @Override
+    public void delete(OrderDetails entity) throws SQLException {
+
+    }
+
+    @Override
+    public void deleteById(int id) throws SQLException {
+
+    }
+
+    public void deleteByOrderIdAndBookId(int orderId, int bookId) throws SQLException {
         String request = "DELETE FROM `order_details` WHERE order_id =" + orderId + " and book_id = " +bookId;
 
         connection.createStatement().executeUpdate(request);

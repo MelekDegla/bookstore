@@ -15,8 +15,8 @@ public class OrderTest {
         OrderDetailsService orderDetailsService = new OrderDetailsService();
         try {
             System.out.println("*-*-*-*-*-*-*- ORDER -*--*-*-*-*-*-*-*");
-            orderService.add(new Order(5,6));
-            orderService.add(new Order(5,8));
+            orderService.insert(new Order(5,6));
+            orderService.insert(new Order(5,8));
             List<Order> orderList = orderService.findAll();
             System.out.println("------------ list -------------");
             orderList.forEach(System.out::println);
@@ -24,7 +24,7 @@ public class OrderTest {
             Order orderToUpdate = orderList.get(0);
             orderToUpdate.setStatus(105998);
             orderService.update(orderToUpdate);
-            orderService.delete(orderService.findAll().get(1).getId());
+            orderService.deleteById(orderService.findAll().get(1).getId());
 
             System.out.println("------------updated list -----------");
             List<Order> ordersUpdated = orderService.findAll();
@@ -34,14 +34,14 @@ public class OrderTest {
             System.out.println("-------------------------------------------");
             System.out.println("-------------------------------------------");
             System.out.println("*-*-*-*-*-*-*- ORDER Details-*--*-*-*-*-*-*-*");
-            orderDetailsService.add(new OrderDetails(ordersUpdated.get(1).getId(),5,2));
-            orderDetailsService.add(new OrderDetails(ordersUpdated.get(2).getId(),6,1));
+            orderDetailsService.insert(new OrderDetails(ordersUpdated.get(1).getId(),5,2));
+            orderDetailsService.insert(new OrderDetails(ordersUpdated.get(2).getId(),6,1));
             List<OrderDetails> orderDetails = orderDetailsService.findAll();
             System.out.println("--------------------- order details list ------------");
             orderDetails.forEach(System.out::println);
             System.out.println("--------------------- end order details list ------------");
 
-            orderDetailsService.delete(orderDetails.get(0).getOrderId(), orderDetails.get(0).getBookId());
+            orderDetailsService.deleteByOrderIdAndBookId(orderDetails.get(0).getOrderId(), orderDetails.get(0).getBookId());
             OrderDetails orderDetailsToUpdate = orderDetails.get(1);
             orderDetailsToUpdate.setQuantity(6);
             orderDetailsService.update(orderDetailsToUpdate);

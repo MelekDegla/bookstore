@@ -1,4 +1,6 @@
 package com.vermeg.bookstore.service;
 
-public interface IPBookService {
+import com.vermeg.bookstore.model.PBook;
+
+public interface IPBookService extends EntityService<PBook> {
 }

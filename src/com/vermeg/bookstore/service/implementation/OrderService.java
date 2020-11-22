@@ -2,12 +2,14 @@ package com.vermeg.bookstore.service.implementation;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import com.vermeg.bookstore.model.Order;
+import com.vermeg.bookstore.model.OrderDetails;
+import com.vermeg.bookstore.service.IOrderService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class OrderService {
+public class OrderService implements IOrderService {
 
     private Connection connection;
 
@@ -15,7 +17,7 @@ public class OrderService {
         connection = DBConnection.getInstance().getConnection();
     }
 
-    public void add(Order order) throws SQLException {
+    public void insert(Order order) throws SQLException {
         String request = "INSERT INTO `order` (`id`, `status`, `user_id`)"
                 + " VALUES (NULL, " + order.getStatus() + ", " + order.getUserId() + ")";
 
@@ -60,7 +62,14 @@ public class OrderService {
 
     }
 
-    public void delete(int id) throws SQLException {
+    @Override
+    public void delete(Order entity) throws SQLException {
+
+    }
+
+
+
+    public void deleteById(int id) throws SQLException {
         String request = "DELETE FROM `order` WHERE id =" + id;
 
         connection.createStatement().executeUpdate(request);

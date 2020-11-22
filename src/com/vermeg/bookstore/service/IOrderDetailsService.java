@@ -1,4 +1,7 @@
 package com.vermeg.bookstore.service;
 
-public interface IOrderDetailsService {
+import com.vermeg.bookstore.model.Order;
+import com.vermeg.bookstore.model.OrderDetails;
+
+public interface IOrderDetailsService extends EntityService<OrderDetails> {
 }

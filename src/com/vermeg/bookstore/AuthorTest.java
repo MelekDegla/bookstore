@@ -12,17 +12,17 @@ public class AuthorTest {
         AuthorService as = new AuthorService();
         try {
 
-             as.addAuthor(new Author("Victor", "Hugo","26/02/1802","220px-Bonnat_Hugo001z"));
+             as.insert(new Author("Victor", "Hugo","2020-12-12","220px-Bonnat_Hugo001z"));
 
-             as.addAuthor(new Author("bla bla", "Hba","26/02/1802","220px-Bonnat_Hugo001z"));
+             as.insert(new Author("bla bla", "Hba","2020-12-11","220px-Bonnat_Hugo001z"));
 
 
              System.out.println("SUPRESSION");
 //             as.deleteAuthor(2);
-            as.deleteAuthor(4);
+            as.deleteById(4);
             Author a = new Author(1,"victor","hugouo","26-02-1806","lien");
-            as.updateAuthor(a);
-            System.out.println(as.getAuthors());
+            as.update(a);
+            System.out.println(as.findAll());
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Exception" );

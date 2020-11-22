@@ -1,18 +1,19 @@
 package com.vermeg.bookstore.service.implementation;
 import com.vermeg.bookstore.model.Feedback;
+import com.vermeg.bookstore.service.IFeedbackService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ServiceFeedback {
+public class ServiceFeedback implements IFeedbackService {
     private Connection cnx;
 
     public ServiceFeedback() {
         cnx = DBConnection.getInstance().getConnection();
     }
 
-    public void addFeedback(Feedback f) throws SQLException {
+    public void insert(Feedback f) throws SQLException {
         String request = "INSERT INTO `feedback` (`id`, `name`, `lastname`, `email`, `phone`, `message`)"
                 + " VALUES (NULL, '" + f.getName() + "', '" + f.getLastname() +"', '" + f.getEmail()+
                 "', '" + f.getPhone()+"', '" + f.getMessage()+"')";
@@ -21,7 +22,7 @@ public class ServiceFeedback {
         stm.executeUpdate(request);
     }
 
-    public ArrayList<Feedback> getFeedback() throws SQLException {
+    public ArrayList<Feedback> findAll() throws SQLException {
         ArrayList<Feedback> results = new ArrayList<>();
         String request = "SELECT * FROM `Feedback`";
         Statement stm = cnx.createStatement();
@@ -41,7 +42,7 @@ public class ServiceFeedback {
         return results;
     }
 
-    public Feedback getFeedback(int id) throws SQLException {
+    public Feedback findById(int id) throws SQLException {
         String request = "SELECT * FROM `feedback` WHERE id =" + id;
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
@@ -60,7 +61,7 @@ public class ServiceFeedback {
         return null;
     }
 
-    public void updateFeedback(Feedback f) throws SQLException {
+    public void update(Feedback f) throws SQLException {
         String request = "UPDATE `feedback` SET `name`=?,`lastname`=?,`email`=?,`phone`=?,`message`=? "
                 + "WHERE `id` = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
@@ -75,7 +76,12 @@ public class ServiceFeedback {
 
     }
 
-    public void deleteFeedback(int id) throws SQLException {
+    @Override
+    public void delete(Feedback entity) throws SQLException {
+
+    }
+
+    public void deleteById(int id) throws SQLException {
         String request = "DELETE FROM `feedback` WHERE id =" + id;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);

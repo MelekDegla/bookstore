@@ -78,6 +78,8 @@ public class Events {
         this.MAX_PARTICIPANTS = MAX_PARTICIPANTS;
     }
 
+
+
     @Override
     public String toString() {
         return "Events{" +

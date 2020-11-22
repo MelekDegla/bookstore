@@ -1,12 +1,16 @@
-package com.vermeg.bookstore.dao.impl;
+package com.vermeg.bookstore.service.implementation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.vermeg.bookstore.model.User;
+import com.vermeg.bookstore.service.UserService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 public class UserServiceImpl implements UserService {
@@ -28,33 +32,47 @@ public class UserServiceImpl implements UserService {
 	        return instance;
 	    }
 	@Override
-	public void insert(User entity) {
-		
-		// TODO Auto-generated method stub
-		String query = "insert into User ( name ,lastname , phone , email,password, username,birthdate,photo)" +
-				" values ('"+entity.getName()+"', '" +entity.getLastname()+"', '"+entity.getPhone()+"' ,' "
-				+entity.getEmail() +"',' "	+ entity.getPassword()+"','"+entity.getUsername()+"' , '"
-				+entity.getBirthdate()+" ' , "	+entity.getPhoto()+");" ;
+	public void insert(User entity)  {
 		try {
-						
-			statement.executeUpdate(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			Date date = new SimpleDateFormat("yyyy-MM-dd").parse(entity.getBirthdate());
+			// TODO Auto-generated method stub
+			String query = "insert into User ( name ,lastname , phone , email,password, username,birthdate,photo)" +
+					" values ('"+entity.getName()+"', '" +entity.getLastname()+"', '"+entity.getPhone()+"' ,' "
+					+entity.getEmail() +"',' "	+ entity.getPassword()+"','"+entity.getUsername()+"' , '"
+					+new java.sql.Date(date.getTime())+" ' , "	+entity.getPhoto()+");" ;
+			try {
+
+				statement.executeUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
+
 	}
 
 	@Override
 	public void update(User entity) {
-		String  query = "update User set  name='"+entity.getName()+"' ,lastname='" +entity.getLastname()+"' "
-				+ ", phone='"+entity.getPhone()+"' , email=' "+entity.getEmail() +"'"
-						+ ",password=' "+ entity.getPassword()+"', username='"+entity.getUsername()+"',birthdate= '"+entity.getBirthdate()+"',photo="+entity.getPhoto()+  " where id = "+entity.getId()+";";
 		try {
-			statement.executeUpdate(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			Date date = new SimpleDateFormat("yyyy-MM-dd").parse(entity.getBirthdate());
+			String  query = "update User set  name='"+entity.getName()+"' ,lastname='" +entity.getLastname()+"' "
+					+ ", phone='"+entity.getPhone()+"' , email=' "+entity.getEmail() +"'"
+					+ ",password=' "+ entity.getPassword()+"', username='"+entity.getUsername()+
+					"',birthdate= '"+new java.sql.Date(date.getTime()) +"',photo="+entity.getPhoto()+  " where id = "+entity.getId()+";";
+			try {
+				statement.executeUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
+
 
 		
 		// TODO Auto-generated method stub
@@ -71,6 +89,11 @@ public class UserServiceImpl implements UserService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+
+	@Override
+	public void deleteById(int id) throws SQLException {
 
 	}
 

@@ -1,4 +1,6 @@
 package com.vermeg.bookstore.service;
 
-public interface IAuthorService {
+import com.vermeg.bookstore.model.Author;
+
+public interface IAuthorService extends EntityService<Author> {
 }

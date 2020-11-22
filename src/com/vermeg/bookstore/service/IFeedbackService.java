@@ -1,4 +1,6 @@
 package com.vermeg.bookstore.service;
 
-public interface IFeedbackService {
+import com.vermeg.bookstore.model.Feedback;
+
+public interface IFeedbackService extends EntityService<Feedback> {
 }

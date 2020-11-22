@@ -1,4 +1,6 @@
 package com.vermeg.bookstore.service;
 
-public interface IEventService {
+import com.vermeg.bookstore.model.Events;
+
+public interface IEventService extends EntityService<Events> {
 }

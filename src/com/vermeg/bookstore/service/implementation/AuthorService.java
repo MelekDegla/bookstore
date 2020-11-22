@@ -2,27 +2,40 @@ package com.vermeg.bookstore.service.implementation;
 
 import com.vermeg.bookstore.model.Author;
 import com.vermeg.bookstore.model.Categorie;
+import com.vermeg.bookstore.service.IAuthorService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class AuthorService {
+public class AuthorService implements IAuthorService {
     private Connection cnx;
 
     public AuthorService() {
         cnx = DBConnection.getInstance().getConnection();
     }
 
-    public void addAuthor(Author a) throws SQLException {
+    public void insert(Author a) throws SQLException {
         String request = "INSERT INTO `Author` (`id`,`name`, `lastname`,`birthdate`,`photo`)"
-                + " VALUES (NULL,'"+a.getName()+"', '" + a.getLastname() + "', '" + a.getBirthdate() .toString()+ "','" + a.getPhoto() + "')";
+                + " VALUES (NULL,'"+a.getName()+"', '" + a.getLastname() + "', ? ,'" + a.getPhoto() + "')";
 
-        Statement stm = cnx.createStatement();
-        stm.executeUpdate(request);
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(a.getBirthdate());
+            PreparedStatement stm = cnx.prepareStatement(request);
+            stm.setDate(1, new java.sql.Date(date.getTime()));
+            stm.executeUpdate();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public ArrayList<Author> getAuthors() throws SQLException {
+    public ArrayList<Author> findAll() throws SQLException {
         ArrayList<Author> results = new ArrayList<>();
         String request = "SELECT * FROM `Author`";
         Statement stm = cnx.createStatement();
@@ -39,6 +52,11 @@ public class AuthorService {
         }
 
         return results;
+    }
+
+    @Override
+    public Author findById(int id) {
+        return null;
     }
 
     public Author getAuthor(int id) throws SQLException {
@@ -59,21 +77,34 @@ public class AuthorService {
         return null;
     }
 
-    public void updateAuthor(Author a) throws SQLException {
+    public void update(Author a) throws SQLException {
         String request = "UPDATE `Author` SET `name`=?,`lastname`=?,`birthdate`=?,`photo`=? "
                 + "WHERE `id` = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(a.getBirthdate());
 
-        pst.setString(1, a.getName());
-        pst.setString(2, a.getLastname());
-        pst.setString(3,  a.getBirthdate());
-        pst.setString(4, a.getPhoto());
-        pst.setInt(5, a.getId());
-        pst.executeUpdate();
+            pst.setString(1, a.getName());
+            pst.setString(2, a.getLastname());
+            pst.setDate(3,  new java.sql.Date(date.getTime()));
+            pst.setString(4, a.getPhoto());
+            pst.setInt(5, a.getId());
+            pst.executeUpdate();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 
-    public void deleteAuthor(int id) throws SQLException {
+    @Override
+    public void delete(Author entity) throws SQLException {
+
+    }
+
+
+    public void deleteById(int id) throws SQLException {
         String request = "DELETE FROM `Author` WHERE id=" + id;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);

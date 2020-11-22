@@ -1,11 +1,16 @@
 package com.vermeg.bookstore.service.implementation;
 import com.vermeg.bookstore.model.Events;
+import com.vermeg.bookstore.service.IEventService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-public class EventsService {
+public class EventsService implements IEventService {
 
     private Connection cnx;
 
@@ -13,14 +18,21 @@ public class EventsService {
         cnx = DBConnection.getInstance().getConnection();
     }
 
-    public void addEvents(Events e) throws SQLException {
-        String request = "INSERT INTO events (`ID`, `title`, `description`, `date`, `MAX_PARTICIPANTS`, `lieu`) " +
-                "VALUES (NULL,'" + e.getTitle() + "','"+ e.getDescription()+ "','"+ e.getDate() + "','"+ e.getMAX_PARTICIPANTS() + "','"+ e.getLieu() +"')";
-        Statement stm = cnx.createStatement();
-        stm.executeUpdate(request);
+    public void insert(Events e) throws SQLException {
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+            String request = "INSERT INTO events (`ID`, `title`, `description`, `date`, `MAX_PARTICIPANTS`, `lieu`) " +
+                    "VALUES (NULL,'" + e.getTitle() + "','"+ e.getDescription()+ "','"+ new java.sql.Date(date.getTime()) + "','"+ e.getMAX_PARTICIPANTS() + "','"+ e.getLieu() +"')";
+            Statement stm = cnx.createStatement();
+            stm.executeUpdate(request);
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        }
+
+
     }
 
-    public ArrayList<Events> getEvents() throws SQLException {
+    public ArrayList<Events> findAll() throws SQLException {
         ArrayList<Events> results = new ArrayList<>();
         String request = " SELECT * FROM events ";
 
@@ -42,7 +54,7 @@ public class EventsService {
         return results;
     }
 
-    public Events getEvents(int ID) throws SQLException {
+    public Events findById(int ID) throws SQLException {
         String request = "SELECT * FROM `events` WHERE id =" + ID;
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
@@ -63,28 +75,41 @@ public class EventsService {
     }
 
 
-    public void updateEvents(Events e) throws SQLException {
-        String request = "UPDATE `events` SET `lieu`=?,`MAX_PARTICIPANTS`=? ,`date`=?,`description`=?,`title`=? "
-                + "WHERE `id` = ?";
-        PreparedStatement pst = cnx.prepareStatement(request);
+    public void update(Events e) throws SQLException {
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+            String request = "UPDATE `events` SET `lieu`=?,`MAX_PARTICIPANTS`=? ,`date`=?,`description`=?,`title`=? "
+                    + "WHERE `id` = ?";
+            PreparedStatement pst = cnx.prepareStatement(request);
 
-        pst.setString(1, e.getLieu());
-        pst.setInt(2, e.getMAX_PARTICIPANTS());
-        pst.setString(3,  e.getDate());
-        pst.setString(4, e.getDescription());
-        pst.setString(5, e.getTitle());
-        pst.setInt(6, e.getID());
-        pst.executeUpdate();
+            pst.setString(1, e.getLieu());
+            pst.setInt(2, e.getMAX_PARTICIPANTS());
+            pst.setDate(3, new java.sql.Date(date.getTime()));
+            pst.setString(4, e.getDescription());
+            pst.setString(5, e.getTitle());
+            pst.setInt(6, e.getID());
+            pst.executeUpdate();
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        }
+
+
 
 
     }
 
+    @Override
+    public void delete(Events entity) throws SQLException {
 
-    public void deleteEvents(int ID) throws SQLException {
+    }
+
+
+    public void deleteById(int ID) throws SQLException {
         String request = "DELETE FROM `events` WHERE id =" + ID;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);
     }
+
 
 
 

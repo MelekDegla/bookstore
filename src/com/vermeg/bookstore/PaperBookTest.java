@@ -11,22 +11,22 @@ public class PaperBookTest {
 
         try {
 
-            System.out.println(servicePBook.getPBooks());
-            servicePBook.addPBook(new PBook(1,2,"54q54DQFHNQKLS","ggg",
+            System.out.println(servicePBook.findAll());
+            servicePBook.insert(new PBook(1,2,"54q54DQFHNQKLS","ggg",
                     "","",444,556));
-            servicePBook.addPBook(new PBook(2,2,"54jjjjDQFHNQKLS","ggg",
+            servicePBook.insert(new PBook(2,2,"54jjjjDQFHNQKLS","ggg",
                     "","",444,556));
-            servicePBook.addPBook(new PBook(3,2,"54q54DQFooooNQKLS","ggg",
+            servicePBook.insert(new PBook(3,2,"54q54DQFooooNQKLS","ggg",
                     "","",444,556));
             System.out.println("*************************************");
-            System.out.println(servicePBook.getPBooks());
+            System.out.println(servicePBook.findAll());
 
                System.out.println("SUPRESSION");
-             servicePBook.deletePBook(   "54q54DQFHNQKLS");
-              System.out.println(servicePBook.getPBooks());
+             servicePBook.deleteByISBN(   "54q54DQFHNQKLS");
+              System.out.println(servicePBook.findAll());
             PBook p = new PBook(19,2,"54q54DQFHNQKLS","ppppppppppppppppp",
                     "ppppppppppppppp","ppppppppppppppppp",444,556);
-            servicePBook.updatePBook(p);
+            servicePBook.update(p);
         } catch (SQLException e) {
             e.printStackTrace();
         }

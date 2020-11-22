@@ -1,12 +1,13 @@
 package com.vermeg.bookstore.service.implementation;
 
 import com.vermeg.bookstore.model.Categorie;
+import com.vermeg.bookstore.service.ICategoryService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CategorieService {
+public class CategorieService implements ICategoryService {
 
     private Connection cnx;
 
@@ -14,7 +15,7 @@ public class CategorieService {
         cnx = DBConnection.getInstance().getConnection();
     }
 
-    public void addCategorie(Categorie c) throws SQLException {
+    public void insert(Categorie c) throws SQLException {
         String request = "INSERT INTO `Categorie` (`id`,`title`, `description`)"
                 + " VALUES (NULL,'"+c.getTitle()+"', '" + c.getDescription() + "')";
 
@@ -22,7 +23,7 @@ public class CategorieService {
         stm.executeUpdate(request);
     }
 
-    public ArrayList<Categorie> getCategories() throws SQLException {
+    public ArrayList<Categorie> findAll() throws SQLException {
         ArrayList<Categorie> results = new ArrayList<>();
         String request = "SELECT * FROM `Categorie`";
         Statement stm = cnx.createStatement();
@@ -39,7 +40,7 @@ public class CategorieService {
         return results;
     }
 
-    public Categorie getCategorie(int id) throws SQLException {
+    public Categorie findById(int id) throws SQLException {
         String request = "SELECT * FROM `Categorie` WHERE id =" + id;
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
@@ -55,7 +56,7 @@ public class CategorieService {
         return null;
     }
 
-    public void updateCategorie(Categorie c) throws SQLException {
+    public void update(Categorie c) throws SQLException {
         String request = "UPDATE `Categorie` SET `title`=?,`description`=? "
                 + "WHERE `id` = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
@@ -67,7 +68,12 @@ public class CategorieService {
 
     }
 
-    public void deleteCategorie(int id) throws SQLException {
+    @Override
+    public void delete(Categorie entity) throws SQLException {
+
+    }
+
+    public void deleteById(int id) throws SQLException {
         String request = "DELETE FROM `Categorie` WHERE id=" + id;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);

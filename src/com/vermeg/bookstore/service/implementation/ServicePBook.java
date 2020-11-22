@@ -1,18 +1,19 @@
 package com.vermeg.bookstore.service.implementation;
 
 import com.vermeg.bookstore.model.PBook;
+import com.vermeg.bookstore.service.IPBookService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ServicePBook {
+public class ServicePBook implements IPBookService {
     private Connection cnx;
     public ServicePBook(){cnx = DBConnection.getInstance().getConnection();}
 
 
 
-    public void addPBook(PBook PBook) throws SQLException {
+    public void insert(PBook PBook) throws SQLException {
     String request=" INSERT INTO `book` (`isbn`, `title`, `description`, `photo`, `price`, `quantity`)" +
             " VALUES ('"+  PBook.getIsbn()+ "','"+PBook.getTitle()+ "','"+
             PBook.getDescription()+ "','"+ PBook.getPhoto()+
@@ -21,7 +22,7 @@ public class ServicePBook {
         stm.executeUpdate(request);
     }
 
-    public ArrayList<PBook> getPBooks() throws SQLException {
+    public ArrayList<PBook> findAll() throws SQLException {
         ArrayList<PBook> PBooks = new ArrayList<>();
         String request = "SELECT * FROM `book`";
         Statement stm = cnx.createStatement();
@@ -40,10 +41,13 @@ public class ServicePBook {
         return PBooks;
     }
 
+    @Override
+    public PBook findById(int id) throws SQLException {
+        return null;
+    }
 
 
-
-    public PBook getPBook (String ISBN) throws SQLException {
+    public PBook findById(String ISBN) throws SQLException {
     String request="SELECT * FROM `book`  WHERE isbn =" + ISBN ;
     Statement stm=cnx.createStatement();
     ResultSet rst=stm.executeQuery(request);
@@ -61,7 +65,7 @@ public class ServicePBook {
         return null;
     }
 
-    public void updatePBook(PBook PBook) throws SQLException {
+    public void update(PBook PBook) throws SQLException {
         String request = "UPDATE `book` SET `isbn` = ?, `title` = ?," +
                 " `description` = ?, `photo` = ?, `price` = ?," +
                 " `quantity` = ? WHERE `id` = ?;";
@@ -77,7 +81,17 @@ public class ServicePBook {
         pst.executeUpdate();
     }
 
-    public void deletePBook(String ISBN)throws  SQLException{
+    @Override
+    public void delete(PBook entity) throws SQLException {
+
+    }
+
+    @Override
+    public void deleteById(int id) throws SQLException {
+
+    }
+
+    public void deleteByISBN(String ISBN)throws  SQLException{
             String request = "DELETE FROM `book` WHERE isbn ='" + ISBN + "'";
             Statement stm = cnx.createStatement();
             stm.executeUpdate(request);
