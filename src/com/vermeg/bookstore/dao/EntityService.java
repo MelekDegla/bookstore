@@ -2,7 +2,7 @@ package com.vermeg.bookstore.dao;
 
 import java.util.List;
 
-public interface  EntityDao<T> {
+public interface EntityService<T> {
 	public void insert(T entity); 
 	public void update (T entity); 
 	public void delete(T entity); 

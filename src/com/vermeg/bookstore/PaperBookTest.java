@@ -1,7 +1,7 @@
 package com.vermeg.bookstore;
 
 import com.vermeg.bookstore.model.PBook;
-import com.vermeg.bookstore.service.ServicePBook;
+import com.vermeg.bookstore.service.implementation.ServicePBook;
 
 import java.sql.SQLException;
 

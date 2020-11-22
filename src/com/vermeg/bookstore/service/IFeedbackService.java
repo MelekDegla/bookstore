@@ -1,2 +1,4 @@
-package com.vermeg.bookstore.service;public interface IFeedbackService {
+package com.vermeg.bookstore.service;
+
+public interface IFeedbackService {
 }

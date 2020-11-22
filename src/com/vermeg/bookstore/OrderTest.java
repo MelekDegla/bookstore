@@ -2,13 +2,14 @@ package com.vermeg.bookstore;
 
 import com.vermeg.bookstore.model.Order;
 import com.vermeg.bookstore.model.OrderDetails;
-import com.vermeg.bookstore.service.OrderDetailsService;
-import com.vermeg.bookstore.service.OrderService;
+import com.vermeg.bookstore.service.implementation.OrderDetailsService;
+import com.vermeg.bookstore.service.implementation.OrderService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class OrderTest {
+
     public static void main(String[] args) {
         OrderService orderService = new OrderService();
         OrderDetailsService orderDetailsService = new OrderDetailsService();

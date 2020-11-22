@@ -1,9 +1,7 @@
 package com.vermeg.bookstore;
 
 import com.vermeg.bookstore.model.Categorie;
-import com.vermeg.bookstore.service.AuthorService;
-import com.vermeg.bookstore.service.CategorieService;
-import com.vermeg.bookstore.utils.DBConnection;
+import com.vermeg.bookstore.service.implementation.CategorieService;
 
 import java.sql.SQLException;
 

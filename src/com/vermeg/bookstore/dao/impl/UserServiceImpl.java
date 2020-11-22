@@ -1,7 +1,5 @@
 package com.vermeg.bookstore.dao.impl;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,11 +9,11 @@ import java.util.List;
 import com.vermeg.bookstore.model.User;
 import com.vermeg.bookstore.utils.DBConnection;
 
-public class UserDaoImpl implements UserDao {
+public class UserServiceImpl implements UserService {
 	private Statement statement; 
 	private ResultSet result;
-	private static UserDaoImpl instance;
-	private UserDaoImpl( ) {
+	private static UserServiceImpl instance;
+	private UserServiceImpl( ) {
 		 try {
 			statement= DBConnection.getInstance().getConnection().createStatement();
 		} catch (SQLException e) {
@@ -23,9 +21,9 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		}
 	}
-	  public static synchronized  UserDaoImpl getInstance(){
+	  public static synchronized UserServiceImpl getInstance(){
 	        if(instance== null){
-	            instance  = new UserDaoImpl();
+	            instance  = new UserServiceImpl();
 	        }
 	        return instance;
 	    }

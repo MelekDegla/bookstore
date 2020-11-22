@@ -1,2 +1,4 @@
-package com.vermeg.bookstore.service;public interface IPBookService {
+package com.vermeg.bookstore.service;
+
+public interface IPBookService {
 }

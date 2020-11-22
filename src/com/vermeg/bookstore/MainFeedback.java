@@ -1,7 +1,7 @@
 package com.vermeg.bookstore;
 
 import com.vermeg.bookstore.model.Feedback;
-import com.vermeg.bookstore.service.ServiceFeedback;
+import com.vermeg.bookstore.service.implementation.ServiceFeedback;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.SQLException;

@@ -1,2 +1,4 @@
-package com.vermeg.bookstore.service;public interface ICategoryService {
+package com.vermeg.bookstore.service;
+
+public interface ICategoryService {
 }

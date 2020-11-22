@@ -3,13 +3,12 @@ package com.vermeg.bookstore.model;
 import java.sql.Date;
 
 public class Events {
-    int ID;
-    String title;
-    String description;
-    String date;
-    int MAX_PARTICIPANTS;
-    String lieu;
-
+    private int ID;
+    private String title;
+    private String description;
+    private String date;
+    private int MAX_PARTICIPANTS;
+    private String lieu;
     public Events() {
 
     }

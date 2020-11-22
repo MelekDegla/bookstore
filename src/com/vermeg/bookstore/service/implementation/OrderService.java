@@ -1,4 +1,4 @@
-package com.vermeg.bookstore.service;
+package com.vermeg.bookstore.service.implementation;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import com.vermeg.bookstore.model.Order;

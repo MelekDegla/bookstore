@@ -1,2 +1,4 @@
-package com.vermeg.bookstore.service.implementation;public class IAuthorService {
+package com.vermeg.bookstore.service;
+
+public interface IAuthorService {
 }

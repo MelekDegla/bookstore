@@ -1,2 +1,4 @@
-package com.vermeg.bookstore.service;public interface IOrderDetailsService {
+package com.vermeg.bookstore.service;
+
+public interface IOrderDetailsService {
 }

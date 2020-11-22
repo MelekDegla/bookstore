@@ -1,4 +1,4 @@
-package com.vermeg.bookstore.service;
+package com.vermeg.bookstore.service.implementation;
 import com.vermeg.bookstore.model.Feedback;
 import com.vermeg.bookstore.utils.DBConnection;
 
