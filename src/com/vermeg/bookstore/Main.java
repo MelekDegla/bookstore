@@ -1,47 +1,47 @@
 package com.vermeg.bookstore;
 
-import com.vermeg.bookstore.model.PBook;
-import com.vermeg.bookstore.service.ServicePBook;
+
+import com.vermeg.bookstore.model.Ebook;
+import com.vermeg.bookstore.service.implementation.ServiceEbook;
 import com.vermeg.bookstore.utils.DBConnection;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
+
+
+
 public class Main  {
-
-
-
-
     public static void main(String[] args) {
-    //    DBConnection.getInstance().getConnection();
-//        launch(args);
-        ServicePBook servicePBook=new ServicePBook();
+
+        DBConnection.getInstance().getConnection();
+
+        ServiceEbook serviceEbook=new ServiceEbook();
 
         try {
 
-//            System.out.println(servicePBook.getPBooks());
-//            servicePBook.addPBook(new PBook(1,2,"54q54DQFHNQKLS","ggg",
-//                    "","",444,556));
-//            servicePBook.addPBook(new PBook(2,2,"54jjjjDQFHNQKLS","ggg",
-//                    "","",444,556));
-//            servicePBook.addPBook(new PBook(3,2,"54q54DQFooooNQKLS","ggg",
-//                    "","",444,556));
-//            System.out.println("*************************************");
-//            System.out.println(servicePBook.getPBooks());
+            System.out.println(serviceEbook.findAll());
+            serviceEbook.insert(new Ebook(1,589,"kljhabdmzefz","hahaha",
+                    "mlgh:","ftsyrdyfgl",432));
+            serviceEbook.insert(new Ebook(2,289,"akjzblfhazùo","hohohh",
+                    "","",432));
+            serviceEbook.insert(new Ebook( 3,980,"hgkiaglabflor","hihih",
+                    "","",432));
+            System.out.println(serviceEbook.findAll());
 
-         //   System.out.println("SUPRESSION");
-           // servicePBook.deletePBook(   "54q54DQFHNQKLS");
-          //  System.out.println(servicePBook.getPBooks());
-            PBook p = new PBook(19,2,"54q54DQFHNQKLS","ppppppppppppppppp",
-                    "ppppppppppppppp","ppppppppppppppppp",444,556);
-            servicePBook.updatePBook(p);
+
+
+
+            System.out.println("SUPRESSION");
+            serviceEbook.deleteById(  3 );
+            System.out.println(serviceEbook.findAll());
+            Ebook E = new Ebook(1,2,"fatma w al pc al meskin ","looooool",
+                    "jakglo:aj!z","qhgkzuyegm",432);
+            serviceEbook.update(E);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
+
 }
+
+
