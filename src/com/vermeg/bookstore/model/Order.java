@@ -1,2 +1,3 @@
-package com.vermeg.bookstore.model;public class Order {
+package com.vermeg.bookstore.model;
+public class Order {
 }
