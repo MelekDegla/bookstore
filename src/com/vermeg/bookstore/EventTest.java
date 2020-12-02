@@ -23,7 +23,7 @@ public class EventTest {
             es.update(ess);
             System.out.println(es.findAll());
         }catch (SQLException e){
-            e.printStackTrace();
+//            e.printStackTrace();
             System.out.println("exception");
         }
     }
