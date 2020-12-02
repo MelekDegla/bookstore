@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.CharmListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.OrderListController">
    <children>
-      <CharmListView layoutX="88.0" layoutY="40.0" prefHeight="298.0" prefWidth="377.0" />
    </children>
 </AnchorPane>
