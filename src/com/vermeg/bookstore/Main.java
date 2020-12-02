@@ -25,6 +25,7 @@ public class Main  {
     	UserDaoImpl.getInstance().delete(user);
     	
     	
+    	
     System.out.println(UserDaoImpl.getInstance().findAll());	
     
     }
