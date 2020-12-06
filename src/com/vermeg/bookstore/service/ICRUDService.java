@@ -3,7 +3,7 @@ package com.vermeg.bookstore.service;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface EntityService<T> {
+public interface ICRUDService<T> {
 	public void insert(T entity) throws SQLException;
 	public void update (T entity) throws SQLException;
 	public void delete(T entity) throws SQLException;

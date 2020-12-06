@@ -4,6 +4,8 @@ import com.vermeg.bookstore.model.Categorie;
 import com.vermeg.bookstore.service.implementation.CategorieService;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Set;
 
 public class CategorieTest {
 
