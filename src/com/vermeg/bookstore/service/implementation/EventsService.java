@@ -4,11 +4,8 @@ import com.vermeg.bookstore.service.IEventService;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.sql.Date;
 
 public class EventsService implements IEventService {
 
@@ -20,12 +17,13 @@ public class EventsService implements IEventService {
 
     public void insert(Events e) throws SQLException {
         try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+           // Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+            Date date= e.getDate();
             String request = "INSERT INTO events (`ID`, `title`, `description`, `date`, `MAX_PARTICIPANTS`, `lieu`) " +
                     "VALUES (NULL,'" + e.getTitle() + "','"+ e.getDescription()+ "','"+ new java.sql.Date(date.getTime()) + "','"+ e.getMAX_PARTICIPANTS() + "','"+ e.getLieu() +"')";
             Statement stm = cnx.createStatement();
             stm.executeUpdate(request);
-        } catch (ParseException parseException) {
+        } catch (SQLException parseException) {
             parseException.printStackTrace();
         }
 
@@ -44,7 +42,8 @@ public class EventsService implements IEventService {
             e.setID(rst.getInt("id"));
             e.setTitle(rst.getString(2));
             e.setDescription(rst.getString(3));
-            e.setDate(rst.getString(4));
+            e.setDate(rst.getDate("date"));
+           //e.setDate(new java.sql.Date(4));
             e.setMAX_PARTICIPANTS(rst.getInt(5));
             e.setLieu(rst.getString(6));
             results.add(e);
@@ -64,7 +63,7 @@ public class EventsService implements IEventService {
             e.setID(rst.getInt("id"));
             e.setTitle(rst.getString(2));
             e.setDescription(rst.getString(3));
-            e.setDate(rst.getString(4));
+            e.setDate(rst.getDate(4));
             e.setMAX_PARTICIPANTS(rst.getInt(5));
             e.setLieu(rst.getString(6));
 
@@ -77,7 +76,8 @@ public class EventsService implements IEventService {
 
     public void update(Events e) throws SQLException {
         try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+            //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(e.getDate());
+            Date date = e.getDate();
             String request = "UPDATE `events` SET `lieu`=?,`MAX_PARTICIPANTS`=? ,`date`=?,`description`=?,`title`=? "
                     + "WHERE `id` = ?";
             PreparedStatement pst = cnx.prepareStatement(request);
@@ -89,7 +89,7 @@ public class EventsService implements IEventService {
             pst.setString(5, e.getTitle());
             pst.setInt(6, e.getID());
             pst.executeUpdate();
-        } catch (ParseException parseException) {
+        } catch (SQLException parseException) {
             parseException.printStackTrace();
         }
 

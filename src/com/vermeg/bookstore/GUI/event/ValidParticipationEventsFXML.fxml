@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c5c5c5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.event.ValidParticipationController">
+    <children>
+      <AnchorPane layoutX="400.0" layoutY="-18.0" prefHeight="432.0" prefWidth="234.0" style="-fx-background-color: #b9eaf8;">
+         <children>
+            <Label layoutY="145.0" prefHeight="17.0" prefWidth="233.0" text="                   name" textFill="#1e2f2d">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="1.0" layoutY="255.0" prefHeight="17.0" prefWidth="233.0" text="                   E-mail" textAlignment="CENTER" textFill="#1e2f2d">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutY="197.0" prefHeight="17.0" prefWidth="233.0" text="           phone number" textAlignment="CENTER" textFill="#1e2f2d">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnvalider" layoutX="48.0" layoutY="351.0" mnemonicParsing="false" onAction="#validerParticipation" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #49c7f0;" text="Valider">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="125.0" fitWidth="150.0" layoutX="108.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bookstore.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="23.0" layoutY="69.0" prefHeight="345.0" prefWidth="104.0" spacing="15.0">
+         <children>
+            <Label text="Title">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Place">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Date">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Participations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Description">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="127.0" layoutY="67.0" prefHeight="135.0" prefWidth="233.0" spacing="8.0">
+         <children>
+            <TextField fx:id="tfTitle" editable="false" promptText="Title" />
+            <TextField fx:id="tfPlace" editable="false" promptText="Event Place" />
+            <TextField fx:id="tfdate" editable="false" />
+            <TextField fx:id="tfParticipation" editable="false" promptText="Participation number" />
+         </children>
+      </VBox>
+      <TextField fx:id="tfnumber" layoutX="400.0" layoutY="203.0" prefHeight="25.0" prefWidth="233.0" />
+      <TextField fx:id="tfname" layoutX="400.0" layoutY="149.0" prefHeight="25.0" prefWidth="233.0" />
+      <TextField fx:id="tfemail" layoutX="400.0" layoutY="261.0" prefHeight="25.0" prefWidth="233.0" />
+      <Label layoutX="56.0" layoutY="8.0" prefHeight="26.0" prefWidth="160.0" text="Event Details" textFill="#30946f">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="tfDescription" layoutX="127.0" layoutY="207.0" prefHeight="150.0" prefWidth="233.0" promptText="Description" />
+    </children>
+</AnchorPane>

@@ -1,7 +1,6 @@
 package com.vermeg.bookstore.model;
 
 import java.sql.Blob;
-import java.util.Date;
 
 
 public class User {
@@ -17,9 +16,11 @@ public class User {
      private Blob photo;
 	public User() {
 		super();
+
 	}
+
 	public User(int id, String name, String lastname, String phone, String email, String password, String username,
-			String birthdate, Boolean isAdmin, Blob photo) {
+				String birthdate, Boolean isAdmin, Blob photo) {
 		super();
 		this.id = id;
 		this.name = name;
