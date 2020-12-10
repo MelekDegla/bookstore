@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="app" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="715.0"  xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.category_author.AfficheCategorieFXMLController">
+    <children>
+        <Label alignment="CENTER" layoutX="199.0" layoutY="8.0" prefHeight="49.0" prefWidth="253.0" text="Les Catégories " textFill="#49c7f0">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="search" layoutX="43.0" layoutY="72.0" onAction="#recherche" prefHeight="31.0" prefWidth="240.0" promptText="Rechercher" />
+        <Button fx:id="bt1" layoutX="575.0" layoutY="72.0" mnemonicParsing="false" onAction="#triedate" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #49c7f0;" text="trier par Nom" textFill="#FFFF">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="back_menu" layoutX="23.0" layoutY="32.0" onAction="#retour" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #49c7f0;" text="back" textFill="#FFFF">
+
+        </Button>
+        <ScrollPane fx:id="scroll" layoutY="152.0" prefHeight="416.0" prefWidth="730.0">
+            <content>
+                <VBox fx:id="categoriecontainer" prefHeight="399.0" prefWidth="715.0" style="-fx-background-color: #c5c5c5;" />
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

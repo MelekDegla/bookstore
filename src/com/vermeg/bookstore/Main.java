@@ -1,29 +1,47 @@
 package com.vermeg.bookstore;
 
-import com.vermeg.bookstore.model.Author;
-import com.vermeg.bookstore.service.AuthorService;
-import com.vermeg.bookstore.service.CategorieService;
+
+import com.vermeg.bookstore.model.Ebook;
+import com.vermeg.bookstore.service.implementation.ServiceEbook;
 import com.vermeg.bookstore.utils.DBConnection;
 
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
+
+
+
 
 public class Main  {
-
-
-
-
     public static void main(String[] args) {
+
         DBConnection.getInstance().getConnection();
-//        launch(args);
 
-      /*  try {
+        ServiceEbook serviceEbook=new ServiceEbook();
 
+        try {
+
+            System.out.println(serviceEbook.findAll());
+            serviceEbook.insert(new Ebook(1,589,"kljhabdmzefz","hahaha",
+                    "mlgh:","ftsyrdyfgl",432));
+            serviceEbook.insert(new Ebook(2,289,"akjzblfhazùo","hohohh",
+                    "","",432));
+            serviceEbook.insert(new Ebook( 3,980,"hgkiaglabflor","hihih",
+                    "","",432));
+            System.out.println(serviceEbook.findAll());
+
+
+
+
+            System.out.println("SUPRESSION");
+            serviceEbook.deleteById(  3 );
+            System.out.println(serviceEbook.findAll());
+            Ebook E = new Ebook(1,2,"fatma w al pc al meskin ","looooool",
+                    "jakglo:aj!z","qhgkzuyegm",432);
+            serviceEbook.update(E);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Exception" );
-        }*/
-
+        }
     }
+
 }
+
+

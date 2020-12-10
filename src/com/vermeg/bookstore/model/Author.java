@@ -6,26 +6,39 @@ public class Author {
     private int id;
     private String name;
     private String lastname;
-    private String birthdate;
+    private Date birthdate;
     private String photo;
+    private int nbLivres;
 
-    public Author(){}
+    public Author(String name, String lastname, Date birthdate, String photo, int nbLivres) {
+        this.name = name;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.photo = photo;
+        this.nbLivres = nbLivres;
+    }
 
-    public Author(int id, String name, String lastname, String birthdate, String photo) {
+
+
+    public Author(int id, String name, String lastname, Date birthdate, String photo, int nbLivres) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.birthdate = birthdate;
         this.photo = photo;
+        this.nbLivres = nbLivres;
     }
 
-    public Author(String name, String lastname, String birthdate, String photo) {
-
-        this.name = name;
-        this.lastname = lastname;
-        this.birthdate = birthdate;
-        this.photo = photo;
+    public int getNbLivres() {
+        return nbLivres;
     }
+
+    public void setNbLivres(int nbLivres) {
+        this.nbLivres = nbLivres;
+    }
+
+    public Author(){}
+
 
     public int getId() {
         return id;
@@ -51,11 +64,11 @@ public class Author {
         this.lastname = lastname;
     }
 
-    public String getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
