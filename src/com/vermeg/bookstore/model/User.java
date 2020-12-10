@@ -1,6 +1,5 @@
 package com.vermeg.bookstore.model;
 
-import java.sql.Blob;
 import java.util.Date;
 
 
@@ -12,14 +11,14 @@ public class User {
 	private String email; 
 	private String password ;
 	private String username; 
-	private String birthdate; 
+	private Date birthdate; 
      private Boolean isAdmin;
-     private Blob photo;
+     private String photo;
 	public User() {
 		super();
 	}
 	public User(int id, String name, String lastname, String phone, String email, String password, String username,
-			String birthdate, Boolean isAdmin, Blob photo) {
+			Date birthdate, Boolean isAdmin, String photo) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -74,10 +73,10 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 	public Boolean getIsAdmin() {
@@ -86,19 +85,27 @@ public class User {
 	public void setIsAdmin(Boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	public Blob getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
-	public void setPhoto(Blob photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-     
-	
-	
-	
 
-	
-	
-	
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", lastname='" + lastname + '\'' +
+				", phone='" + phone + '\'' +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", username='" + username + '\'' +
+				", birthdate=" + birthdate +
+				", isAdmin=" + isAdmin +
+				", photo='" + photo + '\'' +
+				'}';
+	}
 }

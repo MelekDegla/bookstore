@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="508.0" prefWidth="840.0" style="-fx-background-color: 00000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.user.LoginController">
+    <children>
+        <Label fx:id="inscrirLabel" layoutX="528.0" layoutY="78.0" prefHeight="54.0" prefWidth="179.0" text="Inscrivez-vous maintenant!" textAlignment="CENTER" textFill="#b4b0ff">
+            <font>
+                <Font name="Bauhaus 93" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="exit" layoutX="475.0" layoutY="57.0" onMouseClicked="#quitter" prefHeight="27.0" prefWidth="128.0" style="-fx-background-color: #49c7f0;" text="exit" textAlignment="CENTER" textFill="WHITE">
+            <effect>
+                <DropShadow />
+            </effect>
+            <font>
+                <Font name="Bauhaus 93" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="signup" layoutX="639.0" layoutY="58.0" onAction="#Pageregister" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #49c7f0;" text="Register" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Bauhaus 93" size="12.0" />
+            </font>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Button>
+        <TextField fx:id="labelusername" layoutX="515.0" layoutY="177.0" prefHeight="27.0" prefWidth="195.0" promptText="Nom d'utilisateur">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="15.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="labelpassword" layoutX="515.0" layoutY="244.0" prefHeight="27.0" prefWidth="195.0" promptText="Mot de passe">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="15.0" />
+            </font>
+        </PasswordField>
+        <Hyperlink fx:id="labelmdo" layoutX="555.0" layoutY="456.0" onAction="#Pagerecupmdp" text="Mot de passe oublié ?" textFill="#384eeb" />
+        <ImageView fitHeight="38.0" fitWidth="66.0" layoutX="788.0" layoutY="20.0" onMouseClicked="#closeApplication" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ressources/img/close.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnlogin" layoutX="493.0" layoutY="332.0" onAction="#handleLoginButtonAction" prefHeight="27.0" prefWidth="229.0" style="-fx-background-color: #49c7f0;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <effect>
+                <DropShadow />
+            </effect>
+            <font>
+                <Font name="Bauhaus 93" size="12.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="imgProgress" fitHeight="64.0" fitWidth="64.0" layoutX="581.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ressources/img/Preloader_9.gif" />
+            </image>
+        </ImageView>
+        <Label fx:id="message" layoutX="514.0" layoutY="132.0" prefHeight="27.0" prefWidth="213.0" />
+      <Accordion />
+      <VBox prefHeight="514.0" prefWidth="408.0" style="-fx-background-color: #b9eaf8;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="135.0" fitWidth="125.0" layoutX="134.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../assets/logo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
