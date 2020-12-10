@@ -4,16 +4,22 @@ package com.vermeg.bookstore;
 import com.vermeg.bookstore.model.Ebook;
 import com.vermeg.bookstore.service.implementation.ServiceEbook;
 import com.vermeg.bookstore.utils.DBConnection;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 
 
 
-public class Main  {
-    public static void main(String[] args) {
+public class Main extends Application {
 
-        DBConnection.getInstance().getConnection();
+
+     /*   DBConnection.getInstance().getConnection();
 
         ServiceEbook serviceEbook=new ServiceEbook();
 
@@ -41,6 +47,24 @@ public class Main  {
             e.printStackTrace();
         }
     }
+*/
+        @Override
+        public void start(Stage stage) throws IOException {
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterPersonneFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("gui/AjouterFXML.fxml"));
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
+
 
 }
 
