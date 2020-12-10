@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="519.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.feedback.getFeedbackVisitorFXMLController">
+    <children>
+        <Pane prefHeight="519.0" prefWidth="61.0" style="-fx-background-color: #b9eaf8;">
+            <children>
+
+            </children>
+        </Pane>
+        <Label layoutX="82.0" layoutY="14.0" text="List of your feedbacks - Bookstore" />
+        <SplitPane dividerPositions="0.8785310734463276" layoutX="319.0" layoutY="44.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="486.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="483.0" style="-fx-background-color: white;">
+                    <children>
+                        <ImageView fitHeight="177.0" fitWidth="174.0" layoutX="310.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/logo.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="29.0" layoutY="146.0" text="Your feedback :" />
+                        <Label fx:id="LbDate" layoutX="133.0" layoutY="58.0" prefHeight="17.0" prefWidth="207.0" />
+                        <TextArea fx:id="LbMessage" editable="false" layoutX="29.0" layoutY="182.0" prefHeight="193.0" prefWidth="427.0" />
+                        <Label layoutX="30.0" layoutY="28.0" text="Your subject :" />
+                        <Label fx:id="LbSubject" layoutX="133.0" layoutY="28.0" prefHeight="17.0" prefWidth="270.0" />
+                  <Label layoutX="29.0" layoutY="58.0" text="Date of sending :" />
+                  <Label layoutX="133.0" layoutY="58.0" />
+                  <Label layoutX="30.0" layoutY="87.0" text="Answer status :" />
+                  <Label fx:id="answered" layoutX="128.0" layoutY="86.0" prefHeight="17.0" prefWidth="45.0" />
+                  <Hyperlink fx:id="show" layoutX="178.0" layoutY="83.0" text="Show answer" visible="false" />
+                    </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="38.0" prefWidth="482.0">
+                    <children>
+                        <JFXButton fx:id="LbSend" layoutX="338.0" layoutY="15.0" style="-fx-background-color: #49c7f0;" text="Send another feedback" />
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <VBox fx:id="vboxlist" layoutX="60.0" layoutY="44.0" prefHeight="475.0" prefWidth="257.0" style="-fx-background-color: white;" />
+    </children>
+</AnchorPane>

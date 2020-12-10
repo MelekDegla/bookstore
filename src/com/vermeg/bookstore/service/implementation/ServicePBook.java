@@ -51,7 +51,7 @@ public class ServicePBook implements IPBookService {
     String request="SELECT * FROM `book`  WHERE isbn =" + ISBN ;
     Statement stm=cnx.createStatement();
     ResultSet rst=stm.executeQuery(request);
-    while (rst.next()){
+    if (rst.next()){
     PBook PBook= new PBook();
     PBook.setId(rst.getInt(1));
     PBook.setIsbn(rst.getString(2));

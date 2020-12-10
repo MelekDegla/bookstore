@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="652.0" prefWidth="984.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.commentaire.CommentaireFXMLController">
+   <children>
+      <Pane prefHeight="652.0" prefWidth="43.0" style="-fx-background-color: #b9eaf8;" />
+      <Pane layoutX="43.0" prefHeight="652.0" prefWidth="183.0" style="-fx-background-color: lightgray;">
+         <children>
+            <VBox fx:id="userComments" layoutY="25.0" prefHeight="200.0" prefWidth="109.0" />
+            <Label layoutX="7.0" layoutY="5.0" text="You recently commented in :" />
+         </children></Pane>
+      <Pane layoutX="226.0" layoutY="-1.0" prefHeight="196.0" prefWidth="758.0" style="-fx-background-color: #c5c5c5;">
+         <children>
+            <Label fx:id="tfTitle" layoutX="212.0" layoutY="23.0" prefHeight="50.0" prefWidth="199.0" style="-fx-font-style: ITALIC;" text="Memory">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfAuthor" layoutX="221.0" layoutY="75.0" text="Victor Hugo">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfDescription" layoutX="228.0" layoutY="99.0" prefHeight="102.0" prefWidth="513.0" text="And so you live your life, awkwardly forgetting the name of the person you just met, feeling foolish for not knowing last year’s basic figures when the CEO asks and able to count the number of important dates you remember from high school history on three fingers." wrapText="true" />
+         </children>
+      </Pane>
+      <TextArea fx:id="tfCommentaire" layoutX="238.0" layoutY="531.0" prefHeight="86.0" prefWidth="627.0" promptText="Write your comment here ...">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+      <JFXButton fx:id="btnComment" layoutX="880.0" layoutY="555.0" prefHeight="38.0" prefWidth="75.0" style="-fx-background-color: #49c7f0;" text="Comment" />
+      <ImageView fx:id="imgBook" fitHeight="160.0" fitWidth="112.0" layoutX="301.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/book.jpg" />
+         </image>
+      </ImageView>
+      <ScrollPane fx:id="comments" layoutX="226.0" layoutY="195.0" prefHeight="331.0" prefWidth="758.0" style="-fx-background-color: white;">
+         <content>
+            <VBox fx:id="commentlist" prefHeight="163.0" prefWidth="750.0" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="LbErreur" layoutX="306.0" layoutY="627.0" prefHeight="17.0" prefWidth="491.0" textFill="#e50909" />
+   </children>
+</AnchorPane>

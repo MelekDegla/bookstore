@@ -4,26 +4,37 @@ import com.vermeg.bookstore.model.Feedback;
 import com.vermeg.bookstore.service.implementation.ServiceFeedback;
 import com.vermeg.bookstore.utils.DBConnection;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.SQLException;
 
-public class MainFeedback {
-    public static void main(String[] args) {
-        DBConnection.getInstance().getConnection();
-        ServiceFeedback sf = new ServiceFeedback();
-        try {
-            Feedback f1 = new Feedback(1,"ALI","Mohamed","ali.mohamed@esprit.tn","25889963","bkojqbs");
-            Feedback f2 = new Feedback(2,"BATTIKH","Anis","anis.battikh@esprit.tn","93829700","Merci beaucoup!");
-            Feedback f3 = new Feedback(3,"FERJANI","Iheb","ferjani.iheb@esprit.tn","99555666","bkojqbs");
-            sf.insert(f1);
-            sf.insert(f2);
-            sf.insert(f3);
-            sf.deleteById(7);
-            Feedback f4 = new Feedback(12,"AHMeeeeED","Kamel","kamel.ahmed@esprit.tn","99665887","qsdqsd");
-            sf.update(f4);
-        } catch (SQLException e) {
-            System.out.println("Exception");
-            e.printStackTrace();
-        }
+public class MainFeedback extends Application {
 
+
+
+    @Override
+
+    public void start(Stage stage)  {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("gui/feedback/getFeedbackVisitorFXML.fxml"));
+          //  Parent root = FXMLLoader.load(getClass().getResource("gui/feedback/getFeedbackAdminFXML.fxml"));
+             //Parent root = FXMLLoader.load(getClass().getResource("gui/feedback/AddFeedbackFXML.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("gui/feedback/AnswerFeedbackAdminFXML.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
