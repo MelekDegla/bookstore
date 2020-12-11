@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane   fx:id="mainpane" prefHeight="453.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.pbook.ManagePbooks">
+   <children >
+      <Text fill="#6ec671" layoutX="283.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paper Books" textAlignment="CENTER" wrappingWidth="161.2265625">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="13.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for a book" textAlignment="RIGHT" wrappingWidth="109.2265625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="528.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort by" wrappingWidth="52.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="name" layoutX="582.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="Name" />
+      <CheckBox fx:id="author" layoutX="640.0" layoutY="78.0" mnemonicParsing="false" text="Author" />
+       <Button fx:id="refresh" layoutX="640.0" layoutY="120" mnemonicParsing="false" onAction="#refresh" text="Actualiser" textFill="#2219dd"/>
+
+       <TableView fx:id="listOfBooks" layoutX="43.0" layoutY="160.0" prefHeight="189.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="title" prefWidth="84.0" text="Titre" />
+          <TableColumn fx:id="auteur" prefWidth="89.0" text="Auteur" />
+            <TableColumn fx:id="image" prefWidth="70.0" text="Image" />
+            <TableColumn fx:id="prix" prefWidth="71.0" text="prix" />
+            <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
+            <TableColumn fx:id="nbrpages" prefWidth="113.0" text="Nombre de pages" />
+            <TableColumn fx:id="quantite" prefWidth="84.0" text="Quantité" />
+            <TableColumn fx:id="description" prefWidth="99.0" text="Description" />
+        </columns>
+      </TableView>
+      <TextField layoutX="136.0" layoutY="78.0" onKeyTyped="#searchBooks" prefHeight="25.0" prefWidth="149.0" promptText="Search ..." />
+      <Button defaultButton="true" layoutX="185.0" layoutY="361.0" mnemonicParsing="false" onAction="#addPBook" text="Insérer" textFill="#11a118" wrapText="true" />
+      <Button fx:id="delete" layoutX="498.0" layoutY="361.0" mnemonicParsing="false" onAction="#deletePBook" text="Supprimer" textFill="#dd1111" />
+      <Button fx:id="update" layoutX="342.0" layoutY="361.0" mnemonicParsing="false" onAction="#updatePBook" text="Modifier" textFill="#e4ce25" />
+   </children>
+
+</AnchorPane>
