@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: #49c7f0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.user.ChangerMp">
+   <children>
+      <TextField fx:id="ancien" layoutX="276.0" layoutY="101.0" promptText="mot de passe ancien" />
+      <TextField fx:id="nv" layoutX="277.0" layoutY="161.0" promptText="nouveau mp " />
+      <Text fill="#49c7f0" layoutX="255.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="changer mot de passe" wrappingWidth="254.13671875">
+         <font>
+            <Font size="22.0" />
+         </font></Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../assets/logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn3" layoutX="238.0" layoutY="230.0" mnemonicParsing="false" onAction="#changerpass" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: #49c7f0;" text="changer mot de passe" textFill="#fcf6f6" />
+      <Button fx:id="btn5" layoutX="39.0" layoutY="309.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: #49c7f0;" text="exit" textFill="#fcf6f6" />
+      <Button fx:id="btn4" layoutX="431.0" layoutY="314.0" mnemonicParsing="false" onAction="#vershome" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: #49c7f0;" text="home" textFill="#fcf6f6" />
+   </children>
+</AnchorPane>
