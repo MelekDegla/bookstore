@@ -50,8 +50,8 @@ public class Main extends Application {
 */
         @Override
         public void start(Stage stage) throws IOException {
-            //Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterPersonneFXML.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("gui/AjouterFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("gui/EbookClient.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("gui/AjouterFXML.fxml"));
 
             Scene scene = new Scene(root);
 
@@ -59,8 +59,21 @@ public class Main extends Application {
             stage.show();
         }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args)  {
+       launch(args);
+//        ServiceEbook serviceEbook = new ServiceEbook();
+//        try {
+//            serviceEbook.findAll().forEach(ebook -> {
+//                ebook.setPhoto("t.jpg");
+//                try {
+//                    serviceEbook.update(ebook);
+//                } catch (SQLException exception) {
+//                    exception.printStackTrace();
+//                }
+//            });
+//        } catch (SQLException exception) {
+//            exception.printStackTrace();
+//        }
     }
 
 

@@ -17,7 +17,7 @@
       <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="551.0" prefWidth="229.0" style="-fx-background-color: #2E86C1;" />
       <ImageView fitHeight="78.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/Friends.png" />
+            <Image url="@../Images/129076555_383992306255936_8344229095233244758_n.png" />
          </image>
       </ImageView>
       <Label layoutX="430.0" layoutY="23.0" text="E-Book">
