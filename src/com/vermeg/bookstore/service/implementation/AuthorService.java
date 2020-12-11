@@ -12,6 +12,9 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AuthorService implements IAuthorService {
     private Connection cnx;
@@ -21,17 +24,15 @@ public class AuthorService implements IAuthorService {
     }
 
     public void insert(Author a) throws SQLException {
-        String request = "INSERT INTO `Author` (`id`,`name`, `lastname`,`birthdate`,`photo`)"
-                + " VALUES (NULL,'"+a.getName()+"', '" + a.getLastname() + "', ? ,'" + a.getPhoto() + "')";
+        String request = "INSERT INTO `Author` (`id`,`name`, `lastname`,`nbLivres`,`birthdate`,`photo`)"
+                + " VALUES (NULL,'"+a.getName()+"', '" + a.getLastname() + "', '"+a.getNbLivres()+"' ,'"+a.getBirthdate()+"' ,'" + a.getPhoto() + "')";
 
-        try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(a.getBirthdate());
+
+           // java.sql.Date date = new java.sql.Date(a.getBirthdate().getTime());
             PreparedStatement stm = cnx.prepareStatement(request);
-            stm.setDate(1, new java.sql.Date(date.getTime()));
+            //stm.setDate(4, new java.sql.Date(date.getTime()));
             stm.executeUpdate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -46,8 +47,9 @@ public class AuthorService implements IAuthorService {
             a.setId(rst.getInt("id"));
             a.setName(rst.getString(2));
             a.setLastname(rst.getString(3));
-            a.setBirthdate(rst.getString(4));
-            a.setPhoto(rst.getString(5));
+            a.setNbLivres(rst.getInt(4));
+            a.setBirthdate(rst.getDate(5));
+            a.setPhoto(rst.getString(6));
             results.add(a);
         }
 
@@ -69,8 +71,9 @@ public class AuthorService implements IAuthorService {
             a.setId(rst.getInt("id"));
             a.setName(rst.getString(2));
             a.setLastname(rst.getString(3));
-            a.setBirthdate(rst.getString(4));
-            a.setPhoto(rst.getString(5));
+            a.setNbLivres(rst.getInt(4));
+            a.setBirthdate(rst.getDate(5));
+            a.setPhoto(rst.getString(6));
             return a;
         }
 
@@ -78,21 +81,19 @@ public class AuthorService implements IAuthorService {
     }
 
     public void update(Author a) throws SQLException {
-        String request = "UPDATE `Author` SET `name`=?,`lastname`=?,`birthdate`=?,`photo`=? "
+        String request = "UPDATE `Author` SET `name`=?,`lastname`=?,`nbLivres`=?,`birthdate`=?,`photo`=? "
                 + "WHERE `id` = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
-        try {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(a.getBirthdate());
-
+           // Date date = new SimpleDateFormat("yyyy-MM-dd").parse(a.getBirthdate());
+         java.sql.Date date = new java.sql.Date(a.getBirthdate().getTime());
             pst.setString(1, a.getName());
             pst.setString(2, a.getLastname());
-            pst.setDate(3,  new java.sql.Date(date.getTime()));
-            pst.setString(4, a.getPhoto());
-            pst.setInt(5, a.getId());
+        pst.setInt(3, a.getNbLivres());
+            pst.setDate(4,  new java.sql.Date(date.getTime()));
+            pst.setString(5, a.getPhoto());
+            pst.setInt(6, a.getId());
             pst.executeUpdate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
 
 
 
@@ -108,5 +109,14 @@ public class AuthorService implements IAuthorService {
         String request = "DELETE FROM `Author` WHERE id=" + id;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);
+    }
+
+
+    public ResultSet statistic() throws SQLException  {
+
+        String rec="SELECT count(*),nbLivres FROM `Author` group by nbLivres";
+        PreparedStatement pre= cnx.prepareStatement(rec);
+        ResultSet result = pre.executeQuery();
+        return result;
     }
 }

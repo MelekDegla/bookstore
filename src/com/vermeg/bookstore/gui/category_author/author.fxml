@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1135.0" style="-fx-background-color: linear-gradient(to top, #49c7f0, #b9eaf8, #49c7f0, #b9eaf8, #49c7f0);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermeg.bookstore.controller.category_author.AddAutherFXMLController">
+    <children>
+
+        <VBox layoutY="11.0" prefHeight="711.0" prefWidth="555.0">
+            <children>
+                <HBox prefHeight="93.0" prefWidth="507.0">
+                    <children>
+                        <Label prefHeight="75.0" prefWidth="300.0" text="Authors" textFill="WHITE">
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                            <font>
+                                <Font name="Ebrima" size="40.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox prefHeight="81.0" prefWidth="531.0">
+                    <children>
+                        <Label text="Nom Auteur  :" textFill="#FFFF">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="error_name" prefHeight="70.0" prefWidth="89.0" text="Label" textFill="#c5c5c5">
+                            <HBox.margin>
+                                <Insets bottom="50.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="enom">
+                            <font>
+                                <Font size="18.0" />
+                            </font></TextField>
+                    </children>
+                </HBox>
+                <HBox prefHeight="81.0" prefWidth="531.0">
+                    <children>
+                        <Label text="Prénom Auteur  :" textFill="#FFFF">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="error_prenom" prefHeight="70.0" prefWidth="89.0" text="Label" textFill="#c5c5c5">
+                            <HBox.margin>
+                                <Insets bottom="50.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="eprenom">
+                            <font>
+                                <Font size="18.0" />
+                            </font></TextField>
+                    </children>
+                </HBox>
+
+                <HBox prefHeight="81.0" prefWidth="531.0">
+                    <children>
+                        <Label text="Nb Livres  :" textFill="#FFFF">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="error_nb" prefHeight="70.0" prefWidth="89.0" text="Label" textFill="#c5c5c5">
+                            <HBox.margin>
+                                <Insets bottom="50.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="enblivre">
+                            <font>
+                                <Font size="18.0" />
+                            </font></TextField>
+                    </children>
+                </HBox>
+
+                <HBox prefHeight="78.0" prefWidth="531.0">
+                    <children>
+                        <Label text="Image:" textFill="#FFFF">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="imagee" mnemonicParsing="false" onAction="#importer" prefHeight="33.0" prefWidth="82.0" style="-fx-background-color: #c5c5c5;" text="import" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="20.0" top="10.0" />
+                            </HBox.margin>
+                        </Button>
+                        <ImageView fx:id="imageview" fitHeight="112.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+
+                <HBox prefHeight="71.0" prefWidth="531.0">
+                    <children>
+                        <Label text="Date Anniversaire:" textFill="#FFFF">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+
+                        <DatePicker fx:id="edate" promptText="date">
+                            <HBox.margin>
+                                <Insets left="100.0" />
+                            </HBox.margin>
+                        </DatePicker>
+                    </children>
+                </HBox>
+
+                <Button fx:id="btnclose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#closeApp" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #ff3356, #ff3653, #ff3950, #ff3c4e, #ff3f4b);" text="Quitter" textFill="WHITE">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="125.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="Calibri Light" size="14.0" />
+                    </font>
+                    <graphic>
+
+                    </graphic>
+                    <cursor>
+
+                    </cursor>
+                </Button>
+            </children>
+        </VBox>
+
+
+
+
+
+
+        <VBox layoutX="500.0" prefHeight="600.0" prefWidth="724.0">
+
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="633.0" style="-fx-background-color: #fff;">
+                    <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" color="#e8e4e4" height="10.0" radius="4.5" width="10.0" />
+                    </effect>
+                    <children>
+                        <Label layoutX="73.0" layoutY="24.0" prefHeight="51.0" prefWidth="330.0" text="Espace Admin">
+                            <font>
+                                <Font name="System Bold Italic" size="35.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="table_author" layoutX="-2.0" layoutY="122.0" prefHeight="403.0" prefWidth="633.0">
+                            <columns>
+                                <TableColumn fx:id="eenom" prefWidth="83.0" text="Nom Auteur" />
+                                <TableColumn fx:id="eeprenom" prefWidth="102.0" text="Prénom Auteur" />
+                                <TableColumn fx:id="eenblivre" prefWidth="78.0" text="NB livres" />
+                                <TableColumn fx:id="eeimag" prefWidth="154.0" text="image" />
+                                <TableColumn fx:id="eedate" prefWidth="215.0" text="date" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="eaj" layoutX="73.0" layoutY="545.0" onAction="#ajoutere" style="-fx-background-color: #33cc33;" text="Ajouter un auteur" textFill="#fffbfb">
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="emod" layoutX="323.0" layoutY="544.0" onAction="#modifiere" style="-fx-background-color: #ff9900;" text="Modifier" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="esupp" layoutX="497.0" layoutY="544.0" onAction="#supprimere" style="-fx-background-color: #ff0000;" text="Supprimer" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Button>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="277.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../ressources/img/modifier-icone-7876-128.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="32.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../ressources/img/button-304224_960_720.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="445.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../ressources/img/fermer-croix-supprimer-erreurs-sortie-icone-4368-48.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="131.0" fitWidth="64.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../ressources/img/administrator-male.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="38.0" layoutX="440.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../ressources/img/icons8-eye-48.png" />
+                            </image>
+                        </ImageView>
+                        <Button layoutX="480.0" layoutY="50.0" onAction="#voirstat" style="-fx-background-color: #0b16f1;" text="Voir Stat" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Button>
+
+
+                    </children>
+                </Pane>
+            </children>
+
+
+        </VBox>
+
+    </children>
+</AnchorPane>

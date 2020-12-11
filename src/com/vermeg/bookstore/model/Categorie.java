@@ -1,23 +1,65 @@
 package com.vermeg.bookstore.model;
 
+import java.sql.Date;
+
 public class Categorie {
+
     private int id ;
-   private String title ;
+   private String libelle ;
     private String description ;
+
+    public Date getDateajout() {
+        return dateajout;
+    }
+
+    public void setDateajout(Date dateajout) {
+        this.dateajout = dateajout;
+    }
+
+    public Date getDatemodif() {
+        return datemodif;
+    }
+
+    public Categorie(String libelle, String description, Date dateajout, Date datemodif) {
+        this.libelle = libelle;
+        this.description = description;
+        this.dateajout = dateajout;
+        this.datemodif = datemodif;
+    }
+
+    public Categorie(int id, String libelle, String description, Date dateajout, Date datemodif) {
+        this.id = id;
+        this.libelle = libelle;
+        this.description = description;
+        this.dateajout = dateajout;
+        this.datemodif = datemodif;
+    }
+
+    public void setDatemodif(Date datemodif) {
+        this.datemodif = datemodif;
+    }
+
+    public Date dateajout ;
+    public Date datemodif ;
     public Categorie(){}
 
-    public Categorie(String title , String description){
-        this.title=title ;
+    public Categorie( String libelle , String description){
+        this.libelle=libelle ;
         this.description=description ;
+
     }
-    public Categorie(int id,String title , String description){
+    public Categorie(int id) {
+        this.id = id;
+    }
+    public Categorie(int id,String libelle , String description){
         this.id=id;
-        this.title=title ;
+        this.libelle=libelle;
         this.description=description ;
     }
 
-    public String getTitle() {
-        return title;
+
+    public String getLibelle() {
+        return libelle;
     }
 
     public int getId() {
@@ -28,8 +70,8 @@ public class Categorie {
         this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     public String getDescription() {
@@ -40,11 +82,7 @@ public class Categorie {
         this.description = description;
     }
 
-    @Override
     public String toString() {
-        return "Categorie{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return  libelle ;
     }
 }
