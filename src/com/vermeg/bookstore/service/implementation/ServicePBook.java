@@ -91,6 +91,25 @@ public class ServicePBook implements IPBookService {
             return null;
         }
 
+    public PBook findById(String ISBN) throws SQLException {
+    String request="SELECT * FROM `book`  WHERE isbn =" + ISBN ;
+    Statement stm=cnx.createStatement();
+    ResultSet rst=stm.executeQuery(request);
+    if (rst.next()){
+    PBook PBook= new PBook();
+    PBook.setId(rst.getInt(1));
+    PBook.setIsbn(rst.getString(2));
+        PBook.setTitle(rst.getString(3));
+        PBook.setDescription(rst.getString(4));
+        PBook.setPhoto(rst.getString(5));
+        PBook.setPrice(rst.getDouble(6));
+        PBook.setQuantity(rst.getInt(7));
+        return PBook;
+    }
+        return null;
+    }
+
+
         public void update(PBook PBook) throws SQLException {
             String request = "UPDATE `book` SET `isbn` = ?, `title` = ?," +
                     " `description` = ?, `photo` = ?, `price` = ?," +

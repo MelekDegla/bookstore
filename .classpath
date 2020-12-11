@@ -8,6 +8,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libraries/mysql-connector-java-5.1.49.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="src/images/logo.png"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/Anis/Desktop/javax.mail.jar"/>
+>>>>>>> b38877b5dc9b413877526aff22d31cb2c6ad491e
 	<classpathentry kind="output" path="bin"/>
 </classpath>
