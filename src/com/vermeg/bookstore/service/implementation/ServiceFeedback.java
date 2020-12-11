@@ -14,9 +14,9 @@ public class ServiceFeedback implements IFeedbackService {
     }
 
     public void insert(Feedback f) throws SQLException {
-        String request = "INSERT INTO `feedback` (`id`, `name`, `lastname`, `email`, `phone`, `subject`, `message`,`created_at`,`is_answered`,`answer`)"
+        String request = "INSERT INTO feedback (id, name, lastname, email, phone, subject, message,`created_at`,`is_answered`,`answer`,`id_user`)"
                 + " VALUES (NULL, '" + f.getName() + "', '" + f.getLastname() +"', '" + f.getEmail()+
-                "', '" + f.getPhone()+"', '"+ f.getSubject()+"', '" + f.getMessage()+"',current_timestamp(),0,'"+f.getAnswer()+"')";
+                "', '" + f.getPhone()+"', '"+ f.getSubject()+"', '" + f.getMessage()+"',current_timestamp(),0,'"+f.getAnswer()+"',"+15+")";
 
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);
@@ -25,7 +25,7 @@ public class ServiceFeedback implements IFeedbackService {
 
     public ArrayList<Feedback> findAll() throws SQLException {
         ArrayList<Feedback> results = new ArrayList<>();
-        String request = "SELECT * FROM `Feedback` order by created_at DESC";
+        String request = "SELECT * FROM Feedback order by created_at DESC";
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
 
@@ -41,6 +41,7 @@ public class ServiceFeedback implements IFeedbackService {
             f.setCreated_at(rst.getTimestamp(8));
             f.setIs_answered(rst.getInt(9));
             f.setAnswer(rst.getString(10));
+            f.setId_user(rst.getInt(11));
 
             results.add(f);
         }
@@ -51,7 +52,7 @@ public class ServiceFeedback implements IFeedbackService {
 
     public ArrayList<Feedback> findAllByUser(int id) throws SQLException {
         ArrayList<Feedback> results = new ArrayList<>();
-        String request = "SELECT * FROM `Feedback` WHERE id_user="+id+" order by created_at DESC";
+        String request = "SELECT * FROM Feedback WHERE id_user="+id+" order by created_at DESC";
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
 
@@ -67,6 +68,7 @@ public class ServiceFeedback implements IFeedbackService {
             f.setCreated_at(rst.getTimestamp(8));
             f.setIs_answered(rst.getInt(9));
             f.setAnswer(rst.getString(10));
+            f.setId_user(rst.getInt(11));
 
             results.add(f);
         }
@@ -76,7 +78,7 @@ public class ServiceFeedback implements IFeedbackService {
     }
 
     public Feedback findById(int id) throws SQLException {
-        String request = "SELECT * FROM `feedback` WHERE id =" + id;
+        String request = "SELECT * FROM feedback WHERE id =" + id;
         Statement stm = cnx.createStatement();
         ResultSet rst = stm.executeQuery(request);
 
@@ -95,8 +97,8 @@ public class ServiceFeedback implements IFeedbackService {
     }
 
     public void update(Feedback f) throws SQLException {
-        String request = "UPDATE `feedback` SET `name`=?,`lastname`=?,`email`=?,`phone`=?,`message`=? "
-                + "WHERE `id` = ?";
+        String request = "UPDATE feedback SET name`=?,lastname`=?,`email`=?,`phone`=?,`message`=? "
+                + "WHERE id = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
 
         pst.setString(1, f.getName());
@@ -110,7 +112,7 @@ public class ServiceFeedback implements IFeedbackService {
     }
 
     public void updateAnswered(Feedback f) throws SQLException {
-        String request = "UPDATE `feedback` SET `is_answered`=1, answer=? WHERE `id` = ?";
+        String request = "UPDATE feedback SET is_answered`=1, answer=? WHERE id` = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
         pst.setString(1, f.getAnswer());
         pst.setInt(2, f.getId());
@@ -121,7 +123,7 @@ public class ServiceFeedback implements IFeedbackService {
     public ArrayList<Feedback> search(String search) throws SQLException {
         ArrayList<Feedback> results = new ArrayList<>();
         search="%"+search+"%";
-        String request = "SELECT * FROM `Feedback` where (name LIKE ?) or (lastname LIKE ?) or (email LIKE ?) " +
+        String request = "SELECT * FROM Feedback where (name LIKE ?) or (lastname LIKE ?) or (email LIKE ?) " +
                 "or (phone LIKE ?) or (subject LIKE ?) or (message LIKE ?) or (created_at LIKE ?) order by created_at DESC";
         PreparedStatement pst = cnx.prepareStatement(request);
         pst.setString(1, search);
@@ -159,7 +161,7 @@ public class ServiceFeedback implements IFeedbackService {
     }
 
     public void deleteById(int id) throws SQLException {
-        String request = "DELETE FROM `feedback` WHERE id =" + id;
+        String request = "DELETE FROM feedback WHERE id =" + id;
         Statement stm = cnx.createStatement();
         stm.executeUpdate(request);
     }

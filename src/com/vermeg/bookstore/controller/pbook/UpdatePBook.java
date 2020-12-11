@@ -46,7 +46,7 @@ public class UpdatePBook implements Initializable {
 
     @FXML
     private void close(javafx.event.ActionEvent actionEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../gui/manage_pbooks.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../../gui/pbook/manage_pbooks.fxml"));
         mainpane.getChildren().removeAll(mainpane.getChildren());
         mainpane.getChildren().add(pane);
     }

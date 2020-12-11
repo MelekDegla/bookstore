@@ -15,21 +15,21 @@ import java.util.Properties;
 
 public class PaperBookTest extends Application {
     public static void main(String[] args) {
-//        ServicePBook servicePBook=new ServicePBook();
-//        try {
-//            servicePBook.findAll().forEach(pBook -> {
-//                pBook.setPhoto(pBook.getPhoto().replace("5102ogTDCGL.jpg", "C:\\Users\\jridi\\Desktop\\Bookstore\\bookstoreDesktop\\src\\com\\vermeg\\bookstore\\resources\\9781789137897.jpg"));
-//                try {
-//                    servicePBook.update(pBook);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            });
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        ServicePBook servicePBook=new ServicePBook();
+        try {
+            servicePBook.findAll().forEach(pBook -> {
+                pBook.setPhoto("C:\\Users\\Degla\\Desktop\\fatma\\bookstoreDesktop\\src\\com\\vermeg\\bookstore\\resources\\51a0k07h-wL.jpg");
+                try {
+                    servicePBook.update(pBook);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            });
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
-        launch(args);
+        //launch(args);
 
 //        try {
 //

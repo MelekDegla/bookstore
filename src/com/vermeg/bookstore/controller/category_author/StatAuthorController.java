@@ -64,7 +64,7 @@ public class StatAuthorController implements Initializable {
 
     @FXML
     private void retour(ActionEvent event) throws IOException {
-        setNode(FXMLLoader.load(getClass().getResource("../gui/author.fxml")));
+        setNode(FXMLLoader.load(getClass().getResource("../../gui/category_author/author.fxml")));
     }
 
 

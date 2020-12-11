@@ -83,7 +83,7 @@ public class ManagePbooks implements Initializable {
     }
     @FXML
     private void addPBook(javafx.event.ActionEvent actionEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../gui/addPBook.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../../gui/pbook/addPBook.fxml"));
         init();
         mainpane.getChildren().removeAll(mainpane.getChildren());
         mainpane.getChildren().add(pane);
@@ -105,7 +105,7 @@ public class ManagePbooks implements Initializable {
     @FXML
     private void updatePBook(javafx.event.ActionEvent actionEvent) throws IOException {
         Draft.pbook = listOfBooks.getSelectionModel().getSelectedItem();
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../gui/updatePBook.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../../gui/pbook/updatePBook.fxml"));
         mainpane.getChildren().removeAll(mainpane.getChildren());
         mainpane.getChildren().add(pane);
 

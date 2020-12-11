@@ -45,11 +45,11 @@ public class AuthorService implements IAuthorService {
         while (rst.next()) {
             Author a = new Author();
             a.setId(rst.getInt("id"));
-            a.setName(rst.getString(2));
-            a.setLastname(rst.getString(3));
-            a.setNbLivres(rst.getInt(4));
-            a.setBirthdate(rst.getDate(5));
-            a.setPhoto(rst.getString(6));
+            a.setName(rst.getString("name"));
+            a.setLastname(rst.getString("lastname"));
+            a.setNbLivres(rst.getInt("nbLivres"));
+            a.setBirthdate(rst.getDate("birthdate"));
+            a.setPhoto(rst.getString("photo"));
             results.add(a);
         }
 
@@ -69,11 +69,11 @@ public class AuthorService implements IAuthorService {
         if (rst.next()) {
             Author a= new Author();
             a.setId(rst.getInt("id"));
-            a.setName(rst.getString(2));
-            a.setLastname(rst.getString(3));
-            a.setNbLivres(rst.getInt(4));
-            a.setBirthdate(rst.getDate(5));
-            a.setPhoto(rst.getString(6));
+            a.setName(rst.getString("name"));
+            a.setLastname(rst.getString("lastname"));
+            a.setNbLivres(rst.getInt("nbLivres"));
+            a.setBirthdate(rst.getDate("birthdate"));
+            a.setPhoto(rst.getString("photo"));
             return a;
         }
 

@@ -517,7 +517,7 @@ public class UserServiceImpl implements UserService {
 			message.setFrom(new InternetAddress(myAccountEmail));
 			message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
 			message.setSubject("friends bookstore");
-			String htmlCode = "welcme to freinds bookstore";
+			String htmlCode = "welcome to friends bookstore";
 			message.setContent(htmlCode, "text/html");
 			return message;
 		} catch (Exception ex) {

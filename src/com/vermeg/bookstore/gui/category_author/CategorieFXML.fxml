@@ -14,7 +14,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="table1" layoutX="438.0" layoutY="40.0" prefHeight="600.0" prefWidth="657.0">
+                                <TableView fx:id="table1" layoutX="438.0" layoutY="70.0" prefHeight="600.0" prefWidth="657.0">
                                     <columns>
                                         <TableColumn fx:id="tablelibelle" prefWidth="127.0" text="Libelle" />
                                         <TableColumn fx:id="tabledescription" prefWidth="204.0" text="Description" />
@@ -57,7 +57,7 @@
                 </Tab>
             </tabs>
         </TabPane>
-        <VBox layoutX="-2.0" layoutY="69.0" prefHeight="600.0" prefWidth="442.0" style="-fx-background-color: #49c7f0;">
+        <VBox layoutX="-2.0" layoutY="100.0" prefHeight="600.0" prefWidth="442.0" style="-fx-background-color: #49c7f0;">
             <children>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
@@ -116,11 +116,11 @@
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
                         <VBox prefHeight="76.0" prefWidth="30.0" />
-                        <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #FFFF;" text="ajouter" textFill="#49c7f0" />
+                        <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #FFFF; -fx-text-fill: #49c7f0;" text="ajouter" textFill="#49c7f0" />
                         <VBox prefHeight="76.0" prefWidth="44.0" />
-                        <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #FFFF;" text="modifier" textFill="#49c7f0" />
+                        <Button mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: #FFFF; -fx-text-fill: #49c7f0;" text="modifier" textFill="#49c7f0" />
                         <VBox prefHeight="76.0" prefWidth="55.0" />
-                        <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #FFFF;" text="supprimer" textFill="#49c7f0" />
+                        <Button mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="97.0" style="-fx-background-color: #FFFF; -fx-text-fill: #49c7f0;" text="supprimer" textFill="#49c7f0" />
                     </children>
                 </HBox>
             </children>

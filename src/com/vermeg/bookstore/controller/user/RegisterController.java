@@ -308,7 +308,7 @@ public class RegisterController implements Initializable{
 
 
 		labelusername.getScene().getWindow().hide();
-		loadWindow(getClass().getResource("/com/vermeg/bookstore/gui/login.fxml"), "Login", null);
+		loadWindow(getClass().getResource("/com/vermeg/bookstore/gui/user/login.fxml"), "Login", null);
 
 
 	}

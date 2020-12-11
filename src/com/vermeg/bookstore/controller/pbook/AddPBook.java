@@ -2,6 +2,7 @@ package com.vermeg.bookstore.controller.pbook;
 
 import com.vermeg.bookstore.model.PBook;
 import com.vermeg.bookstore.service.implementation.ServicePBook;
+import com.vermeg.bookstore.service.implementation.UserServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,7 +53,7 @@ public class AddPBook implements Initializable {
 
     @FXML
     private void close(javafx.event.ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/manage_pbooks.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../gui/pbook/manage_pbooks.fxml"));
 
         AnchorPane pane = loader.load();
         mainpane.getChildren().removeAll(mainpane.getChildren());
@@ -74,10 +75,13 @@ public class AddPBook implements Initializable {
         int nbrpages = Integer.parseInt(this.nbrpage.getText());
         ServicePBook spb = new ServicePBook();
         PBook pbook = new PBook(0, quantity, isbn, title, auteur, desc, photoText, price, nbrpages);
-        close(null);
+
         try {
             spb.insert(pbook);
-
+            new UserServiceImpl().findAll().forEach(u -> {
+                spb.sendMail(u.getEmail(), pbook.getTitle(), "checkout our new book ");
+            });
+            close(null);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

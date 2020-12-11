@@ -37,10 +37,10 @@ public class CategorieService implements ICategoryService {
         while (rst.next()) {
             Categorie c = new Categorie();
             c.setId(rst.getInt("id"));
-            c.setLibelle(rst.getString(1));
-            c.setDescription(rst.getString(2));
-            c.setDateajout(rst.getDate(3));
-            c.setDatemodif(rst.getDate(4));
+            c.setLibelle(rst.getString("libelle"));
+            c.setDescription(rst.getString("description"));
+            c.setDateajout(rst.getDate("dateajout"));
+            c.setDatemodif(rst.getDate("datemodif"));
             results.add(c);
         }
 
@@ -56,10 +56,10 @@ public class CategorieService implements ICategoryService {
         if (rst.next()) {
             Categorie c = new Categorie();
             c.setId(rst.getInt("id"));
-            c.setLibelle(rst.getString(2));
-            c.setDescription(rst.getString(3));
-            c.setDateajout(rst.getDate(4));
-            c.setDatemodif(rst.getDate(5));
+            c.setLibelle(rst.getString("libelle"));
+            c.setDescription(rst.getString("description"));
+            c.setDateajout(rst.getDate("dateajout"));
+            c.setDatemodif(rst.getDate("datemodif"));
             return c;
         }
 
@@ -122,7 +122,7 @@ public class CategorieService implements ICategoryService {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AuthorService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategorieService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }

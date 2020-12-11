@@ -140,7 +140,7 @@ public class LoginController implements Initializable {
 
     void Pageregister(ActionEvent event) throws IOException {
 
-        AnchorPane page=FXMLLoader.load(getClass().getResource("../gui/register.fxml"));
+        AnchorPane page=FXMLLoader.load(getClass().getResource("../../gui/user/register.fxml"));
 
         pane.getChildren().setAll(page);
 //        labelusername.getScene().getWindow().hide();
@@ -212,6 +212,7 @@ public class LoginController implements Initializable {
 
                         User userConnecter=myServices.chercherUtilisateurByUsername(username);
 //yimchi dashbord admin
+                loadWindow(getClass().getResource("/com/vermeg/bookstore/gui/main/main.fxml"), "Registration", null);
                       labelusername.getScene().getWindow().hide();
                       /* Notifications n = Notifications.create()
                                 .title("Bienvenue")
@@ -232,7 +233,7 @@ public class LoginController implements Initializable {
                     pauseTransition.setOnFinished(ev -> {
                         System.out.println("hello user");
                         labelusername.getScene().getWindow().hide();
-                        loadWindow(getClass().getResource("/com/vermeg/bookstore/gui/user/GererProfil.fxml"), "Registration", null);
+                        loadWindow(getClass().getResource("/com/vermeg/bookstore/gui/main/main2.fxml"), "Registration", null);
 
                         //yimchi lil interface mta3 user catalogue ya melek wala homepage
                         User userConnecter=myServices.chercherUtilisateurByUsername(username);
