@@ -146,28 +146,6 @@ INSERT INTO `ebook` (`id`, `title`, `description`, `file_url`, `photo`, `price`,
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `events`
---
-
-CREATE TABLE `events` (
-  `ID` int(100) NOT NULL,
-  `title` varchar(64) NOT NULL,
-  `description` varchar(64) NOT NULL,
-  `date` date DEFAULT NULL,
-  `MAX_PARTICIPANTS` int(200) NOT NULL,
-  `lieu` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `events`
---
-
-INSERT INTO `events` (`ID`, `title`, `description`, `date`, `MAX_PARTICIPANTS`, `lieu`) VALUES
-(6, 'hackfest', 'hackhaton', '2020-05-11', 50, 'ezzahra'),
-(7, 'hackfest2', 'hackhaton2', '2020-10-03', 50, 'marsa');
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `feedback`

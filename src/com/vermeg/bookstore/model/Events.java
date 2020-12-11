@@ -6,14 +6,14 @@ public class Events {
     private int ID;
     private String title;
     private String description;
-    private String date;
+    private Date date;
     private int MAX_PARTICIPANTS;
     private String lieu;
     public Events() {
 
     }
 
-    public Events(String title, String description, String date, int MAX_PARTICIPANTS, String lieu) {
+    public Events(String title, String description, Date date, int MAX_PARTICIPANTS, String lieu) {
         this.title = title;
         this.description = description;
         this.date = date;
@@ -21,7 +21,7 @@ public class Events {
         this.lieu = lieu;
     }
 
-    public Events(int ID, String title, String description, String date, int MAX_PARTICIPANTS, String lieu) {
+    public Events(int ID, String title, String description, Date date, int MAX_PARTICIPANTS, String lieu) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -46,7 +46,7 @@ public class Events {
         this.ID = ID;
     }
 
-    public String getTitle() {
+    public  String getTitle() {
         return title;
     }
 
@@ -62,11 +62,11 @@ public class Events {
         this.description = description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -89,4 +89,7 @@ public class Events {
                 ", MAX_PARTICIPANTS=" + MAX_PARTICIPANTS +
                 '}';
     }
+
+
+
 }

@@ -16,9 +16,12 @@ public class User {
      private String photo;
 	public User() {
 		super();
+
 	}
+
 	public User(int id, String name, String lastname, String phone, String email, String password, String username,
 			Date birthdate, Boolean isAdmin, String photo) {
+
 		super();
 		this.id = id;
 		this.name = name;

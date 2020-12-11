@@ -1,14 +1,17 @@
 package com.vermeg.bookstore;
 
-import com.vermeg.bookstore.model.Events;
-import com.vermeg.bookstore.service.implementation.EventsService;
-import com.vermeg.bookstore.utils.DBConnection;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.sql.SQLException;
+import java.io.IOException;
 
-public class EventTest {
+public class EventTest extends Application {
 
-    public static void main(String[] args) {
+
+   /* public static void main(String[] args) {
         DBConnection.getInstance().getConnection();
         EventsService es = new EventsService();
         try{
@@ -27,7 +30,19 @@ public class EventTest {
             System.out.println("exception");
         }
     }
+*/
 
 
+
+
+       @Override
+
+       public void start(Stage stage) throws IOException {
+           Parent root = FXMLLoader.load(getClass().getResource("gui/event/ClientEventDisplay.fxml"));
+           Scene scene= new Scene(root);
+          stage.setScene(scene);
+           stage.show();
+
+       }
 
 }
