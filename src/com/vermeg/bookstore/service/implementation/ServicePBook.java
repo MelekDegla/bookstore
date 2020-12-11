@@ -4,8 +4,12 @@ import com.vermeg.bookstore.model.PBook;
 import com.vermeg.bookstore.service.IPBookService;
 import com.vermeg.bookstore.utils.DBConnection;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.Timer;
 
 public class ServicePBook implements IPBookService {
@@ -120,6 +124,44 @@ public class ServicePBook implements IPBookService {
             String request = "DELETE FROM `book` WHERE isbn ='" + ISBN + "'";
             Statement stm = cnx.createStatement();
             stm.executeUpdate(request);
+        }
+
+        public void sendMail(String to ,String subject , String content){
+            final String username = "friends.online.bookstore@gmail.com";
+            final String password = "friendsforever2020";
+
+            Properties prop = new Properties();
+            prop.put("mail.smtp.host", "smtp.gmail.com");
+            prop.put("mail.smtp.port", "587");
+            prop.put("mail.smtp.auth", "true");
+            prop.put("mail.smtp.starttls.enable", "true"); //TLS
+
+            Session session = Session.getInstance(prop,
+                    new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(username, password);
+                        }
+                    });
+
+            try {
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("friends.online.bookstore@gmail.com"));
+                message.setRecipients(
+                        Message.RecipientType.TO,
+                        InternetAddress.parse(to)
+                );
+                message.setSubject(subject);
+                message.setText(content);
+
+                Transport.send(message);
+
+                System.out.println("Done");
+
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+
         }
 
 }

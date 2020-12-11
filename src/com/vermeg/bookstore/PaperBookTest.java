@@ -1,15 +1,36 @@
 package com.vermeg.bookstore;
 
+import com.vermeg.bookstore.service.implementation.ServicePBook;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.sql.SQLException;
+import java.util.Properties;
+
 public class PaperBookTest extends Application {
     public static void main(String[] args) {
 //        ServicePBook servicePBook=new ServicePBook();
-launch(args);
+//        try {
+//            servicePBook.findAll().forEach(pBook -> {
+//                pBook.setPhoto(pBook.getPhoto().replace("5102ogTDCGL.jpg", "C:\\Users\\jridi\\Desktop\\Bookstore\\bookstoreDesktop\\src\\com\\vermeg\\bookstore\\resources\\9781789137897.jpg"));
+//                try {
+//                    servicePBook.update(pBook);
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//            });
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+
+        launch(args);
+
 //        try {
 //
 //            System.out.println(servicePBook.findAll());

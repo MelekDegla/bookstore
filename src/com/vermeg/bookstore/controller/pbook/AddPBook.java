@@ -11,11 +11,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class AddPBook implements Initializable {
@@ -54,6 +59,7 @@ public class AddPBook implements Initializable {
         mainpane.getChildren().add(pane);
         ManagePbooks managePbooks = ((ManagePbooks) loader.getController());
         managePbooks.inititi();
+
     }
 
     @FXML
